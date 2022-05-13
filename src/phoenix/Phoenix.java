@@ -4,6 +4,8 @@
  */
 package phoenix;
 
+import com.phoenix.screens.SplashScreen;
+
 /**
  *
  * @author Lucifer
@@ -15,6 +17,8 @@ public class Phoenix {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        SplashScreen sp = new SplashScreen();
+            sp.setVisible(true);
     }
     
 }
