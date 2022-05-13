@@ -30,7 +30,7 @@ public class SplashScreen extends javax.swing.JFrame {
         progressBar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1536, 846));
+        setPreferredSize(new java.awt.Dimension(918, 423));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 92));
 
@@ -104,6 +104,7 @@ public class SplashScreen extends javax.swing.JFrame {
                 sp.progressBar.setValue(i);
 
             }
+            /***/
         
     }
 
