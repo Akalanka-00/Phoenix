@@ -5,6 +5,9 @@
 package com.phoenix.screens;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -17,7 +20,7 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
-        this.getContentPane().setBackground(Color.white);
+       // this.getContentPane().setBackground(Color.white);
     }
 
     /**
@@ -31,23 +34,34 @@ public class SplashScreen extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         progressBar = new javax.swing.JProgressBar();
+        topic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(718, 423));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 92));
+        jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+
+        progressBar.setForeground(new java.awt.Color(200, 64, 40));
+
+        topic.setFont(new java.awt.Font("Times New Roman", 3, 100)); // NOI18N
+        topic.setForeground(new java.awt.Color(255, 255, 255));
+        topic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        topic.setText("Phoenix ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+            .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(topic, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 296, Short.MAX_VALUE)
+                .addComponent(topic, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -69,47 +83,24 @@ public class SplashScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws InterruptedException {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SplashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SplashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SplashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SplashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SplashScreen().setVisible(true);
-            }
-        });
-        
+    public static void main(String args[]) {
+       
        
             SplashScreen sp = new SplashScreen();
             sp.setVisible(true);
+            
+            
+            try {
             for (int i = 0; i <= 100; i++) {
 
-                Thread.sleep(70);
-                sp.progressBar.setValue(i);
                 
-
+                    Thread.sleep(20);
+                    sp.progressBar.setValue(i);    
             }
+            } catch (InterruptedException ex) {
+                    Logger.getLogger(SplashScreen.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             
         
     }
@@ -117,5 +108,6 @@ public class SplashScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar progressBar;
+    private javax.swing.JLabel topic;
     // End of variables declaration//GEN-END:variables
 }
