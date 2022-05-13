@@ -4,6 +4,8 @@
  */
 package com.phoenix.screens;
 
+import java.awt.Color;
+
 /**
  *
  * @author Lucifer
@@ -15,6 +17,7 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
+        this.getContentPane().setBackground(Color.white);
     }
 
     /**
@@ -30,7 +33,8 @@ public class SplashScreen extends javax.swing.JFrame {
         progressBar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(918, 423));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(718, 423));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 92));
 
@@ -59,6 +63,7 @@ public class SplashScreen extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -102,6 +107,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
                 Thread.sleep(70);
                 sp.progressBar.setValue(i);
+                
 
             }
             
