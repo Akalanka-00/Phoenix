@@ -100,6 +100,10 @@ public class SplashScreen extends javax.swing.JFrame {
             } catch (InterruptedException ex) {
                     Logger.getLogger(SplashScreen.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            
+            CompanyDetailsScreen cd = new CompanyDetailsScreen();
+            sp.setVisible(false);
+            cd.setVisible(true);
                 
             
         
