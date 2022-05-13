@@ -104,7 +104,7 @@ public class SplashScreen extends javax.swing.JFrame {
                 sp.progressBar.setValue(i);
 
             }
-            /***/
+            
         
     }
 
