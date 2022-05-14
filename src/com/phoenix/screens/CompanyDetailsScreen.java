@@ -30,18 +30,19 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         PtitleBar = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        closebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 92));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 82));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Phoenix ");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -57,14 +58,23 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        PtitleBar.setBackground(new java.awt.Color(0, 0, 72));
+        PtitleBar.setBackground(new java.awt.Color(230, 230, 230));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 72));
-        jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 48)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 51, 0));
-        jButton1.setText("X");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        closebtn.setBackground(new java.awt.Color(230, 230, 230));
+        closebtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 48)); // NOI18N
+        closebtn.setForeground(new java.awt.Color(255, 51, 0));
+        closebtn.setText("X");
+        closebtn.setAlignmentY(0.0F);
+        closebtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        closebtn.setBorderPainted(false);
+        closebtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        closebtn.setFocusPainted(false);
+        closebtn.setFocusable(false);
+        closebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closebtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout PtitleBarLayout = new javax.swing.GroupLayout(PtitleBar);
         PtitleBar.setLayout(PtitleBarLayout);
@@ -72,11 +82,11 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             PtitleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PtitleBarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PtitleBarLayout.setVerticalGroup(
             PtitleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -92,7 +102,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 .addComponent(PtitleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addContainerGap(603, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,15 +113,18 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void closebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closebtnMouseClicked
+        // TODO add your handling code here:
+        //this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_closebtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -146,11 +159,13 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 new CompanyDetailsScreen().setVisible(true);
             }
         });
+        CompanyDetailsScreen cds = new CompanyDetailsScreen();
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PtitleBar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

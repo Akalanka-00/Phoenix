@@ -40,7 +40,7 @@ public class SplashScreen extends javax.swing.JFrame {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(718, 423));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 92));
+        jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
         progressBar.setForeground(new java.awt.Color(200, 64, 40));
