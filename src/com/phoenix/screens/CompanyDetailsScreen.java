@@ -61,7 +61,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         PtitleBar.setBackground(new java.awt.Color(230, 230, 230));
 
         closebtn.setBackground(new java.awt.Color(230, 230, 230));
-        closebtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 48)); // NOI18N
+        closebtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
         closebtn.setForeground(new java.awt.Color(255, 51, 0));
         closebtn.setText("X");
         closebtn.setAlignmentY(0.0F);
