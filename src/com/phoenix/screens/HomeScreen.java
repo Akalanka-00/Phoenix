@@ -48,6 +48,11 @@ public class HomeScreen extends javax.swing.JFrame {
         });
 
         addDataBtn.setText("Input Data");
+        addDataBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addDataBtnActionPerformed(evt);
+            }
+        });
 
         trialBlnceBtn.setText("Output");
         trialBlnceBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -126,11 +131,21 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void newAccBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newAccBtnActionPerformed
         // TODO add your handling code here:
+        newAccScreen accScreen = new newAccScreen();
+        accScreen.setVisible(true);
     }//GEN-LAST:event_newAccBtnActionPerformed
 
     private void trialBlnceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialBlnceBtnActionPerformed
         // TODO add your handling code here:
+        TrialBScreen trialB = new TrialBScreen();
+        trialB.setVisible(true);
     }//GEN-LAST:event_trialBlnceBtnActionPerformed
+
+    private void addDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDataBtnActionPerformed
+        // TODO add your handling code here:
+        newTransactionScreen trans = new newTransactionScreen();
+        trans.setVisible(true);
+    }//GEN-LAST:event_addDataBtnActionPerformed
 
     /**
      * @param args the command line arguments
