@@ -51,10 +51,7 @@
                   <Component id="leftSidePanel" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="BasePanel" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jPanel1" pref="611" max="32767" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jPanel1" pref="611" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -107,13 +104,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="newAccBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="addDataBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="trialBlnceBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jButton2" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jButton1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="newAccBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="addDataBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="trialBlnceBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -276,10 +275,7 @@
                   <Component id="LedgerTitlePanel" max="32767" attributes="0"/>
                   <Component id="LedgerListPanel" alignment="0" max="32767" attributes="0"/>
                   <Component id="BottomLeftPanel" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="LedegerViewPanel" max="32767" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="LedegerViewPanel" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -606,7 +602,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="99 transactions"/>
+                <Property name="text" type="java.lang.String" value="99 transactions are available"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
