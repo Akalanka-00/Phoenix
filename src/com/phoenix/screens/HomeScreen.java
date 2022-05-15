@@ -54,7 +54,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        trialBlnceBtn.setText("Output");
+        trialBlnceBtn.setText("Trial balance");
         trialBlnceBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 trialBlnceBtnActionPerformed(evt);
