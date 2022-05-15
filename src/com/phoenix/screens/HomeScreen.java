@@ -23,6 +23,7 @@ public class HomeScreen extends javax.swing.JFrame {
         initComponents();
         times();
         dt();
+        setRowCount();
     }
         Timer t;
         SimpleDateFormat st;
@@ -51,6 +52,11 @@ public class HomeScreen extends javax.swing.JFrame {
             
             
     }
+        
+        public void setRowCount(){
+            int c = Table.getRowCount();
+            RowCountLabel.setText(c + " transactions are available");
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,7 +96,7 @@ public class HomeScreen extends javax.swing.JFrame {
         Table = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         currentTimeLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        RowCountLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CurrentDateLabel = new javax.swing.JLabel();
 
@@ -382,8 +388,8 @@ public class HomeScreen extends javax.swing.JFrame {
         currentTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         currentTimeLabel.setText("current time");
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("99 transactions are available");
+        RowCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RowCountLabel.setText("99 transactions are available");
 
         jLabel3.setText("last transaction : 01/01/2022");
 
@@ -398,7 +404,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(currentTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -415,7 +421,7 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(CurrentDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
@@ -537,6 +543,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel LedgerTitlePanel;
     private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel MonthFilterLabel;
+    private javax.swing.JLabel RowCountLabel;
     private java.awt.TextField SearchBarTxtField;
     private javax.swing.JLabel SelectedLedgerDis;
     private javax.swing.JLabel SelectedLedgerTitleLabel;
@@ -550,7 +557,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel leftSidePanel;
