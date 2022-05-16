@@ -204,7 +204,7 @@
                     <StringItem index="8" value="qq"/>
                     <StringItem index="9" value="ww"/>
                     <StringItem index="10" value="ee"/>
-                    <StringItem index="11" value="aaaaa"/>
+                    <StringItem index="11" value="r"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -237,9 +237,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add a New Accoount"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
