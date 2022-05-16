@@ -48,7 +48,6 @@ public class SplashScreen extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/phoenix/assets/logo.png"))); // NOI18N
 
         progressBar.setForeground(new java.awt.Color(255, 0, 0));
