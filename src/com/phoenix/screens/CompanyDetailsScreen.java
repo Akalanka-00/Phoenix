@@ -291,8 +291,6 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         ownerNameLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel8.setText("Owner Name");
 
-        jPasswordField3.setText("jPasswordField2");
-
         javax.swing.GroupLayout ownerNamePanel8Layout = new javax.swing.GroupLayout(ownerNamePanel8);
         ownerNamePanel8.setLayout(ownerNamePanel8Layout);
         ownerNamePanel8Layout.setHorizontalGroup(
