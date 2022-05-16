@@ -4,10 +4,15 @@
  */
 package com.phoenix.screens;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
 /**
@@ -24,6 +29,15 @@ public class HomeScreen extends javax.swing.JFrame {
         times();
         dt();
         setRowCount();
+        
+        Image i;
+        try {
+            i = ImageIO.read(getClass().getResource("../assets/logo.png"));
+             setIconImage(i);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }
         Timer t;
         SimpleDateFormat st;
@@ -389,7 +403,7 @@ public class HomeScreen extends javax.swing.JFrame {
         currentTimeLabel.setText("current time");
 
         RowCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        RowCountLabel.setText("99 transactions are available");
+        RowCountLabel.setText("00 transactions are available");
 
         jLabel3.setText("last transaction : 01/01/2022");
 
