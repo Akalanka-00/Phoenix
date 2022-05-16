@@ -8,12 +8,12 @@ package com.phoenix.screens;
  *
  * @author Lucifer
  */
-public class CompanyDetailsScreen extends javax.swing.JFrame {
+public class test extends javax.swing.JFrame {
 
     /**
-     * Creates new form CompanyDetailsScreen
+     * Creates new form test
      */
-    public CompanyDetailsScreen() {
+    public test() {
         initComponents();
     }
 
@@ -31,35 +31,29 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ownerNamePanel = new javax.swing.JPanel();
         ownerNameLabel = new javax.swing.JLabel();
-        OwnerNameTextField = new javax.swing.JTextField();
-        ownerNamePanel1 = new javax.swing.JPanel();
-        ownerNameLabel1 = new javax.swing.JLabel();
-        OwnerNameTextField1 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         ownerNamePanel2 = new javax.swing.JPanel();
         ownerNameLabel2 = new javax.swing.JLabel();
-        OwnerNameTextField2 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         ownerNamePanel3 = new javax.swing.JPanel();
         ownerNameLabel3 = new javax.swing.JLabel();
-        OwnerNameTextField3 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         ownerNamePanel4 = new javax.swing.JPanel();
         ownerNameLabel4 = new javax.swing.JLabel();
-        OwnerNameTextField4 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         ownerNamePanel5 = new javax.swing.JPanel();
         ownerNameLabel5 = new javax.swing.JLabel();
-        OwnerNameTextField5 = new javax.swing.JTextField();
         ownerNamePanel6 = new javax.swing.JPanel();
         ownerNameLabel6 = new javax.swing.JLabel();
-        OwnerNameTextField6 = new javax.swing.JTextField();
         ownerNamePanel7 = new javax.swing.JPanel();
         ownerNameLabel7 = new javax.swing.JLabel();
-        OwnerNameTextField7 = new javax.swing.JTextField();
         ownerNamePanel8 = new javax.swing.JPanel();
         ownerNameLabel8 = new javax.swing.JLabel();
-        jPasswordField3 = new javax.swing.JPasswordField();
+        ownerNamePanel9 = new javax.swing.JPanel();
+        ownerNameLabel9 = new javax.swing.JLabel();
         trialBlnceBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -91,6 +85,8 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         ownerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel.setText("Owner Name");
 
+        jTextField1.setText("jTextField1");
+
         javax.swing.GroupLayout ownerNamePanelLayout = new javax.swing.GroupLayout(ownerNamePanel);
         ownerNamePanel.setLayout(ownerNamePanelLayout);
         ownerNamePanelLayout.setHorizontalGroup(
@@ -98,7 +94,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanelLayout.createSequentialGroup()
                 .addComponent(ownerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanelLayout.setVerticalGroup(
@@ -106,40 +102,17 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanelLayout.createSequentialGroup()
                 .addGroup(ownerNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
-        );
-
-        ownerNamePanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        ownerNameLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        ownerNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel1.setText("Owner Name");
-
-        javax.swing.GroupLayout ownerNamePanel1Layout = new javax.swing.GroupLayout(ownerNamePanel1);
-        ownerNamePanel1.setLayout(ownerNamePanel1Layout);
-        ownerNamePanel1Layout.setHorizontalGroup(
-            ownerNamePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ownerNamePanel1Layout.createSequentialGroup()
-                .addComponent(ownerNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        ownerNamePanel1Layout.setVerticalGroup(
-            ownerNamePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ownerNamePanel1Layout.createSequentialGroup()
-                .addGroup(ownerNamePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ownerNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         ownerNamePanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel2.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel2.setText("Owner Name");
+        ownerNameLabel2.setText("Company Name");
+
+        jTextField2.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanel2Layout = new javax.swing.GroupLayout(ownerNamePanel2);
         ownerNamePanel2.setLayout(ownerNamePanel2Layout);
@@ -148,7 +121,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel2Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel2Layout.setVerticalGroup(
@@ -156,15 +129,17 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel2Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         ownerNamePanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel3.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel3.setText("Owner Name");
+        ownerNameLabel3.setText("Address");
+
+        jTextField3.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanel3Layout = new javax.swing.GroupLayout(ownerNamePanel3);
         ownerNamePanel3.setLayout(ownerNamePanel3Layout);
@@ -173,7 +148,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel3Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel3Layout.setVerticalGroup(
@@ -181,15 +156,17 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel3Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         ownerNamePanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel4.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel4.setText("Owner Name");
+        ownerNameLabel4.setText("Vat No");
+
+        jTextField4.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanel4Layout = new javax.swing.GroupLayout(ownerNamePanel4);
         ownerNamePanel4.setLayout(ownerNamePanel4Layout);
@@ -198,7 +175,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel4Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel4Layout.setVerticalGroup(
@@ -206,15 +183,15 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel4Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         ownerNamePanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel5.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel5.setText("Owner Name");
+        ownerNameLabel5.setText("Email");
 
         javax.swing.GroupLayout ownerNamePanel5Layout = new javax.swing.GroupLayout(ownerNamePanel5);
         ownerNamePanel5.setLayout(ownerNamePanel5Layout);
@@ -222,24 +199,20 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel5Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel5Layout.setVerticalGroup(
             ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel5Layout.createSequentialGroup()
-                .addGroup(ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         ownerNamePanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel6.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel6.setText("Owner Name");
+        ownerNameLabel6.setText("Phone No");
 
         javax.swing.GroupLayout ownerNamePanel6Layout = new javax.swing.GroupLayout(ownerNamePanel6);
         ownerNamePanel6.setLayout(ownerNamePanel6Layout);
@@ -247,24 +220,20 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel6Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         ownerNamePanel6Layout.setVerticalGroup(
             ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel6Layout.createSequentialGroup()
-                .addGroup(ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
         );
 
         ownerNamePanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel7.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel7.setText("Owner Name");
+        ownerNameLabel7.setText("User Name");
 
         javax.swing.GroupLayout ownerNamePanel7Layout = new javax.swing.GroupLayout(ownerNamePanel7);
         ownerNamePanel7.setLayout(ownerNamePanel7Layout);
@@ -272,26 +241,20 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel7Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OwnerNameTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         ownerNamePanel7Layout.setVerticalGroup(
             ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel7Layout.createSequentialGroup()
-                .addGroup(ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OwnerNameTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         ownerNamePanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         ownerNameLabel8.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel8.setText("Owner Name");
-
-        jPasswordField3.setText("jPasswordField2");
+        ownerNameLabel8.setText("Password");
 
         javax.swing.GroupLayout ownerNamePanel8Layout = new javax.swing.GroupLayout(ownerNamePanel8);
         ownerNamePanel8.setLayout(ownerNamePanel8Layout);
@@ -299,17 +262,34 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel8Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         ownerNamePanel8Layout.setVerticalGroup(
             ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel8Layout.createSequentialGroup()
-                .addGroup(ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        ownerNamePanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        ownerNameLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        ownerNameLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerNameLabel9.setText("Password");
+
+        javax.swing.GroupLayout ownerNamePanel9Layout = new javax.swing.GroupLayout(ownerNamePanel9);
+        ownerNamePanel9.setLayout(ownerNamePanel9Layout);
+        ownerNamePanel9Layout.setHorizontalGroup(
+            ownerNamePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ownerNamePanel9Layout.createSequentialGroup()
+                .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
+        );
+        ownerNamePanel9Layout.setVerticalGroup(
+            ownerNamePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ownerNamePanel9Layout.createSequentialGroup()
+                .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         trialBlnceBtn.setText("OK");
@@ -324,19 +304,19 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ownerNamePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ownerNamePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ownerNamePanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ownerNamePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ownerNamePanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ownerNamePanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ownerNamePanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ownerNamePanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(304, Short.MAX_VALUE)
-                .addComponent(trialBlnceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(ownerNamePanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ownerNamePanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ownerNamePanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ownerNamePanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ownerNamePanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(trialBlnceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,23 +325,23 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(ownerNamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ownerNamePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addComponent(ownerNamePanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
+                .addComponent(ownerNamePanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
                 .addComponent(trialBlnceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -378,7 +358,6 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void trialBlnceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialBlnceBtnActionPerformed
@@ -404,41 +383,33 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CompanyDetailsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CompanyDetailsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CompanyDetailsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CompanyDetailsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CompanyDetailsScreen().setVisible(true);
+                new test().setVisible(true);
             }
         });
-        CompanyDetailsScreen cds = new CompanyDetailsScreen();
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField OwnerNameTextField;
-    private javax.swing.JTextField OwnerNameTextField1;
-    private javax.swing.JTextField OwnerNameTextField2;
-    private javax.swing.JTextField OwnerNameTextField3;
-    private javax.swing.JTextField OwnerNameTextField4;
-    private javax.swing.JTextField OwnerNameTextField5;
-    private javax.swing.JTextField OwnerNameTextField6;
-    private javax.swing.JTextField OwnerNameTextField7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel ownerNameLabel;
-    private javax.swing.JLabel ownerNameLabel1;
     private javax.swing.JLabel ownerNameLabel2;
     private javax.swing.JLabel ownerNameLabel3;
     private javax.swing.JLabel ownerNameLabel4;
@@ -446,8 +417,8 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     private javax.swing.JLabel ownerNameLabel6;
     private javax.swing.JLabel ownerNameLabel7;
     private javax.swing.JLabel ownerNameLabel8;
+    private javax.swing.JLabel ownerNameLabel9;
     private javax.swing.JPanel ownerNamePanel;
-    private javax.swing.JPanel ownerNamePanel1;
     private javax.swing.JPanel ownerNamePanel2;
     private javax.swing.JPanel ownerNamePanel3;
     private javax.swing.JPanel ownerNamePanel4;
@@ -455,6 +426,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     private javax.swing.JPanel ownerNamePanel6;
     private javax.swing.JPanel ownerNamePanel7;
     private javax.swing.JPanel ownerNamePanel8;
+    private javax.swing.JPanel ownerNamePanel9;
     private javax.swing.JButton trialBlnceBtn;
     // End of variables declaration//GEN-END:variables
 }
