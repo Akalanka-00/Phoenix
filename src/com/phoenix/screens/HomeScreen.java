@@ -4,9 +4,11 @@
  */
 package com.phoenix.screens;
 
+import com.sun.jdi.connect.spi.Connection;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.Statement;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -239,7 +242,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LedgerTitlePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(LedgerTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(searchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
                     .addComponent(SearchBarTxtField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LedgerTitleLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -251,6 +254,11 @@ public class HomeScreen extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         LedgerList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        LedgerList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LedgerListMouseClicked(evt);
+            }
+        });
         LedgerListPanel.setViewportView(LedgerList);
 
         BottomLeftPanel.setBackground(new java.awt.Color(50, 53, 55));
@@ -367,12 +375,17 @@ public class HomeScreen extends javax.swing.JFrame {
                 "Date", "Description", "VN", "PR", "Amount", "Date", "Description", "VN", "PR", "Amount"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true, true, true, true
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        Table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableMouseClicked(evt);
             }
         });
         BasePanel.setViewportView(Table);
@@ -399,7 +412,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(currentTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CurrentDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -417,7 +430,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backPanelLayout = new javax.swing.GroupLayout(backPanel);
@@ -429,7 +442,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(leftSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BasePanel)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)))
         );
         backPanelLayout.setVerticalGroup(
             backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,7 +461,7 @@ public class HomeScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -484,6 +497,51 @@ public class HomeScreen extends javax.swing.JFrame {
         this.setVisible(false);
         hs.setVisible(true);
     }//GEN-LAST:event_refreshBtnActionPerformed
+
+    private void LedgerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LedgerListMouseClicked
+        // TODO add your handling code here:
+        
+        //DB connection
+        try{
+            //open connection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","");
+            
+            Statement st = con.createStatement();
+            //mysql query
+            String sql = "select * from cashBook";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+            //adding data
+            String date = rs.getString("Date");
+            String Description = rs.getString("Description");
+            String VN = String.valueOf(rs.getInt("VN"));
+            String PR = String.valueOf(rs.getInt("PR"));
+            String Amount = String.valueOf(rs.getDouble("Amount"));
+            String DRCR = rs.getString("DR/CR");
+            
+            //Store Data
+            
+            String tbData[] = {date,Description,VN,PR,Amount,DRCR};
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            
+            //Add data
+            tblModel.addRow(tbData);
+            
+            }
+            con.close();
+        }catch(Exception e){
+        System.out.println(e.getMessage());
+        }
+        
+        }
+        
+    }//GEN-LAST:event_LedgerListMouseClicked
+
+    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TableMouseClicked
 
     /**
      * @param args the command line arguments
