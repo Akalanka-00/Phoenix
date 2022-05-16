@@ -142,6 +142,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="ownerNameLabel">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Owner Name"/>
               </Properties>
             </Component>
@@ -181,6 +182,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="companyNameLabel">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Company Name"/>
               </Properties>
             </Component>
@@ -220,6 +222,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="companyNameLabel1">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Company Name"/>
               </Properties>
             </Component>

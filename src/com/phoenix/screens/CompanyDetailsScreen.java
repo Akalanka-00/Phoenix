@@ -67,6 +67,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        ownerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel.setText("Owner Name");
 
         ownerNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -91,6 +92,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
+        companyNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         companyNameLabel.setText("Company Name");
 
         companyNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -115,6 +117,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                     .addComponent(companyNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        companyNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         companyNameLabel1.setText("Company Name");
 
         companyNameTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
