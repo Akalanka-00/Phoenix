@@ -209,10 +209,14 @@ public class HomeScreen extends javax.swing.JFrame {
 
         LedgerTitlePanel.setBackground(new java.awt.Color(50, 53, 55));
 
+        LedgerTitleLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         LedgerTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
         LedgerTitleLabel.setText("Accounts");
 
         SearchBarTxtField.setBackground(new java.awt.Color(60, 63, 65));
+        SearchBarTxtField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        SearchBarTxtField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        SearchBarTxtField.setForeground(new java.awt.Color(255, 255, 255));
 
         searchBtn.setBackground(new java.awt.Color(50, 53, 55));
         searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/phoenix/assets/search.png"))); // NOI18N
@@ -235,7 +239,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LedgerTitlePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(LedgerTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(searchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                     .addComponent(SearchBarTxtField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LedgerTitleLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -413,7 +417,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backPanelLayout = new javax.swing.GroupLayout(backPanel);
@@ -425,7 +429,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(leftSidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BasePanel)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)))
         );
         backPanelLayout.setVerticalGroup(
             backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -476,6 +480,9 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
         // TODO add your handling code here:
+        HomeScreen hs = new HomeScreen();
+        this.setVisible(false);
+        hs.setVisible(true);
     }//GEN-LAST:event_refreshBtnActionPerformed
 
     /**
