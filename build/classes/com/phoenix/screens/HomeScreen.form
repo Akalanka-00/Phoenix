@@ -602,7 +602,7 @@
             <Component class="javax.swing.JLabel" name="RowCountLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="99 transactions are available"/>
+                <Property name="text" type="java.lang.String" value="00 transactions are available"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
