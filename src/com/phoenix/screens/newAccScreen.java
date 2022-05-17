@@ -74,7 +74,7 @@ public class newAccScreen extends javax.swing.JFrame {
 
         jLabel5.setText("Amount :");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asset", "Expense", "Equity", "Liability" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asset", "Expense", "Equity", "Liability", "Income" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
