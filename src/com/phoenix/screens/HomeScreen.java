@@ -4,6 +4,7 @@
  */
 package com.phoenix.screens;
 
+import com.phoenix.classes.conSQL;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -480,6 +481,8 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
         // TODO add your handling code here:
+        conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
         HomeScreen hs = new HomeScreen();
         this.setVisible(false);
         hs.setVisible(true);
