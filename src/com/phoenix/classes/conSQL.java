@@ -44,6 +44,7 @@ public class conSQL {
     }
 
     public int rowCount() {
+        
         return 15;
     }
 
@@ -61,6 +62,10 @@ public class conSQL {
 
     public void SubmitCompanyData(String ownerName, String companyName, String address, int Vat, String mail, int phone, String username, String psw) {
         System.out.println(ownerName + companyName + address + Vat + mail + phone + username + psw);
+    }
+    
+    public Boolean loginCredentials(String uname,String psw){
+        return true;
     }
 
 }
