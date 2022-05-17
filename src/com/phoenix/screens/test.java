@@ -43,14 +43,19 @@ public class test extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         ownerNamePanel5 = new javax.swing.JPanel();
         ownerNameLabel5 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
         ownerNamePanel6 = new javax.swing.JPanel();
         ownerNameLabel6 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
         ownerNamePanel7 = new javax.swing.JPanel();
         ownerNameLabel7 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
         ownerNamePanel8 = new javax.swing.JPanel();
         ownerNameLabel8 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         ownerNamePanel9 = new javax.swing.JPanel();
         ownerNameLabel9 = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
         trialBlnceBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,11 +86,8 @@ public class test extends javax.swing.JFrame {
 
         ownerNamePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel.setText("Owner Name");
-
-        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanelLayout = new javax.swing.GroupLayout(ownerNamePanel);
         ownerNamePanel.setLayout(ownerNamePanelLayout);
@@ -95,7 +97,7 @@ public class test extends javax.swing.JFrame {
                 .addComponent(ownerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         ownerNamePanelLayout.setVerticalGroup(
             ownerNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,11 +110,8 @@ public class test extends javax.swing.JFrame {
 
         ownerNamePanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel2.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel2.setText("Company Name");
-
-        jTextField2.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanel2Layout = new javax.swing.GroupLayout(ownerNamePanel2);
         ownerNamePanel2.setLayout(ownerNamePanel2Layout);
@@ -135,11 +134,8 @@ public class test extends javax.swing.JFrame {
 
         ownerNamePanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel3.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel3.setText("Address");
-
-        jTextField3.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanel3Layout = new javax.swing.GroupLayout(ownerNamePanel3);
         ownerNamePanel3.setLayout(ownerNamePanel3Layout);
@@ -162,11 +158,8 @@ public class test extends javax.swing.JFrame {
 
         ownerNamePanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel4.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel4.setText("Vat No");
-
-        jTextField4.setText("jTextField1");
 
         javax.swing.GroupLayout ownerNamePanel4Layout = new javax.swing.GroupLayout(ownerNamePanel4);
         ownerNamePanel4.setLayout(ownerNamePanel4Layout);
@@ -189,7 +182,6 @@ public class test extends javax.swing.JFrame {
 
         ownerNamePanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel5.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel5.setText("Email");
 
@@ -199,18 +191,21 @@ public class test extends javax.swing.JFrame {
             ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel5Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel5Layout.setVerticalGroup(
             ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel5Layout.createSequentialGroup()
-                .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         ownerNamePanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel6.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel6.setText("Phone No");
 
@@ -220,18 +215,21 @@ public class test extends javax.swing.JFrame {
             ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel6Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel6Layout.setVerticalGroup(
             ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel6Layout.createSequentialGroup()
-                .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 4, Short.MAX_VALUE))
         );
 
         ownerNamePanel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel7.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel7.setText("User Name");
 
@@ -241,20 +239,29 @@ public class test extends javax.swing.JFrame {
             ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel7Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel7Layout.setVerticalGroup(
             ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel7Layout.createSequentialGroup()
-                .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         ownerNamePanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel8.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel8.setText("Password");
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ownerNamePanel8Layout = new javax.swing.GroupLayout(ownerNamePanel8);
         ownerNamePanel8.setLayout(ownerNamePanel8Layout);
@@ -262,20 +269,23 @@ public class test extends javax.swing.JFrame {
             ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel8Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel8Layout.setVerticalGroup(
             ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel8Layout.createSequentialGroup()
-                .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         ownerNamePanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        ownerNameLabel9.setForeground(new java.awt.Color(0, 0, 0));
         ownerNameLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ownerNameLabel9.setText("Password");
+        ownerNameLabel9.setText("Re-password");
 
         javax.swing.GroupLayout ownerNamePanel9Layout = new javax.swing.GroupLayout(ownerNamePanel9);
         ownerNamePanel9.setLayout(ownerNamePanel9Layout);
@@ -283,13 +293,17 @@ public class test extends javax.swing.JFrame {
             ownerNamePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel9Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel9Layout.setVerticalGroup(
             ownerNamePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ownerNamePanel9Layout.createSequentialGroup()
-                .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(ownerNamePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         trialBlnceBtn.setText("OK");
@@ -366,6 +380,10 @@ public class test extends javax.swing.JFrame {
         trialB.setVisible(true);
     }//GEN-LAST:event_trialBlnceBtnActionPerformed
 
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -405,10 +423,15 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel ownerNameLabel;
     private javax.swing.JLabel ownerNameLabel2;
     private javax.swing.JLabel ownerNameLabel3;
