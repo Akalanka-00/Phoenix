@@ -56,7 +56,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         ownerNamePanel8 = new javax.swing.JPanel();
         ownerNameLabel8 = new javax.swing.JLabel();
         jPasswordField3 = new javax.swing.JPasswordField();
-        trialBlnceBtn = new javax.swing.JButton();
+        okBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -310,10 +310,10 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
-        trialBlnceBtn.setText("OK");
-        trialBlnceBtn.addActionListener(new java.awt.event.ActionListener() {
+        okBtn.setText("OK");
+        okBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trialBlnceBtnActionPerformed(evt);
+                okBtnActionPerformed(evt);
             }
         });
 
@@ -331,7 +331,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addComponent(ownerNamePanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(304, Short.MAX_VALUE)
-                .addComponent(trialBlnceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(ownerNamePanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ownerNamePanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -360,7 +360,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(ownerNamePanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(trialBlnceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -379,11 +379,11 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void trialBlnceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialBlnceBtnActionPerformed
+    private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
         // TODO add your handling code here:
-        TrialBScreen trialB = new TrialBScreen();
-        trialB.setVisible(true);
-    }//GEN-LAST:event_trialBlnceBtnActionPerformed
+        HomeScreen hs = new HomeScreen();
+        hs.setVisible(true);
+    }//GEN-LAST:event_okBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -435,6 +435,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField3;
+    private javax.swing.JButton okBtn;
     private javax.swing.JLabel ownerNameLabel;
     private javax.swing.JLabel ownerNameLabel1;
     private javax.swing.JLabel ownerNameLabel2;
@@ -453,6 +454,5 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     private javax.swing.JPanel ownerNamePanel6;
     private javax.swing.JPanel ownerNamePanel7;
     private javax.swing.JPanel ownerNamePanel8;
-    private javax.swing.JButton trialBlnceBtn;
     // End of variables declaration//GEN-END:variables
 }
