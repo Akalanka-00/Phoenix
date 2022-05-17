@@ -18,7 +18,7 @@ public class newTransactionScreen extends javax.swing.JFrame {
     public newTransactionScreen() {
         initComponents();
         
-        AccountData.
+        
         jLabel3.setText("");
         
         
