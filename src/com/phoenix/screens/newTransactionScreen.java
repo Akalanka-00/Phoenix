@@ -16,12 +16,7 @@ public class newTransactionScreen extends javax.swing.JFrame {
      * Creates new form newTransactionScreen
      */
     public newTransactionScreen() {
-        initComponents();
-        
-        
-        jLabel3.setText("");
-        
-        
+        initComponents();   
     }
 
     /**
