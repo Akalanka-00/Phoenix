@@ -4,6 +4,8 @@
  */
 package com.phoenix.screens;
 
+import com.phoenix.DataModels.AccountData;
+
 /**
  *
  * @author Lucifer
@@ -15,6 +17,11 @@ public class newTransactionScreen extends javax.swing.JFrame {
      */
     public newTransactionScreen() {
         initComponents();
+        
+        AccountData.
+        jLabel3.setText("");
+        
+        
     }
 
     /**
