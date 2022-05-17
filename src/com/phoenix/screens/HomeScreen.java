@@ -529,7 +529,6 @@ public class HomeScreen extends javax.swing.JFrame {
         
         LedgerList.setModel(m);
         LedgerList.setSelectedIndex(0);
-        
     }//GEN-LAST:event_formWindowOpened
 
     private void LedgerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LedgerListMouseClicked
