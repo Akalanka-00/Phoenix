@@ -10,10 +10,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.Timer;
 
 /**
@@ -30,6 +34,7 @@ public class HomeScreen extends javax.swing.JFrame {
         times();
         dt();
         setRowCount();
+       
         
         Image i;
         try {
@@ -72,6 +77,10 @@ public class HomeScreen extends javax.swing.JFrame {
             int c = Table.getRowCount();
             RowCountLabel.setText(c + " transactions are available");
         }
+        
+        
+        
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,6 +123,11 @@ public class HomeScreen extends javax.swing.JFrame {
         CurrentDateLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         backPanel.setBackground(new java.awt.Color(255, 255, 255));
         backPanel.setPreferredSize(new java.awt.Dimension(900, 550));
@@ -257,6 +271,11 @@ public class HomeScreen extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         LedgerList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        LedgerList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LedgerListMouseClicked(evt);
+            }
+        });
         LedgerListPanel.setViewportView(LedgerList);
 
         BottomLeftPanel.setBackground(new java.awt.Color(50, 53, 55));
@@ -498,6 +517,29 @@ public class HomeScreen extends javax.swing.JFrame {
         conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+         conSQL sqlConn = new conSQL();
+        DefaultListModel m = new DefaultListModel();
+        for(int i=0; i<sqlConn.rowCount();i++){
+         m.addElement(sqlConn.accNames(i));
+          
+        }
+        
+        LedgerList.setModel(m);
+        LedgerList.setSelectedIndex(0);
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void LedgerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LedgerListMouseClicked
+        // TODO add your handling code here:
+        conSQL sqlConn = new conSQL();
+        int selectedIndex = LedgerList.getSelectedIndex();
+        SelectedLedgerTitleLabel.setText(sqlConn.accTitle(selectedIndex));
+        SelectedLedgerDis.setText(sqlConn.accDiscription(selectedIndex));
+        
+    }//GEN-LAST:event_LedgerListMouseClicked
 
     /**
      * @param args the command line arguments

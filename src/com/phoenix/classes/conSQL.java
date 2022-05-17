@@ -22,6 +22,8 @@ public class conSQL {
     
     conSQL sql = new conSQL();
     sql.startDBConnection();
+    sql.rowCount();
+   // sql.accNames(0);
 
     }
     
@@ -46,6 +48,22 @@ public class conSQL {
            System.out.println("error available");
         }
 
+    }
+    
+    public int rowCount(){
+        return 15;
+    }
+    
+    public String accNames(int r) {
+         return "item "+ r;
+    }
+    
+    public String accTitle(int r){
+         return "Title "+ r;
+    }
+    
+    public String accDiscription(int r){
+         return "Discription "+ r;
     }
 
     
