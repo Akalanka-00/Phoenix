@@ -10,4 +10,7 @@ package com.phoenix.classes;
  */
 public class DataValidation {
     
+    public static void main (String args[]){
+    
+    }
 }

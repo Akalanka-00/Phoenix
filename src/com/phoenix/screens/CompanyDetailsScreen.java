@@ -4,6 +4,8 @@
  */
 package com.phoenix.screens;
 
+import com.phoenix.classes.conSQL;
+import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
@@ -68,31 +70,31 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ownerNamePanel = new javax.swing.JPanel();
         ownerNameLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ownerNameTxtField = new javax.swing.JTextField();
         ownerNamePanel2 = new javax.swing.JPanel();
         ownerNameLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        CompanyNameTxtField = new javax.swing.JTextField();
         ownerNamePanel3 = new javax.swing.JPanel();
         ownerNameLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        AddressTextField = new javax.swing.JTextField();
         ownerNamePanel4 = new javax.swing.JPanel();
         ownerNameLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        VatTextField = new javax.swing.JTextField();
         ownerNamePanel5 = new javax.swing.JPanel();
         ownerNameLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        EmailTextField = new javax.swing.JTextField();
         ownerNamePanel6 = new javax.swing.JPanel();
         ownerNameLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        PhoneNoTextField = new javax.swing.JTextField();
         ownerNamePanel7 = new javax.swing.JPanel();
         ownerNameLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        UserNameTextField = new javax.swing.JTextField();
         ownerNamePanel8 = new javax.swing.JPanel();
         ownerNameLabel8 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        PasswordField1 = new javax.swing.JPasswordField();
         ownerNamePanel9 = new javax.swing.JPanel();
         ownerNameLabel9 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        PasswordField2 = new javax.swing.JPasswordField();
         trialBlnceBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,7 +135,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanelLayout.createSequentialGroup()
                 .addComponent(ownerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ownerNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         ownerNamePanelLayout.setVerticalGroup(
@@ -141,7 +143,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanelLayout.createSequentialGroup()
                 .addGroup(ownerNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ownerNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -157,7 +159,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel2Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CompanyNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel2Layout.setVerticalGroup(
@@ -165,7 +167,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel2Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CompanyNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -181,7 +183,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel3Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel3Layout.setVerticalGroup(
@@ -189,7 +191,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel3Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -205,7 +207,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel4Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel4Layout.setVerticalGroup(
@@ -213,7 +215,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel4Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -229,7 +231,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel5Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel5Layout.setVerticalGroup(
@@ -237,7 +239,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel5Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -253,7 +255,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel6Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PhoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel6Layout.setVerticalGroup(
@@ -261,7 +263,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel6Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PhoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 4, Short.MAX_VALUE))
         );
 
@@ -270,6 +272,12 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         ownerNameLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel7.setText("User Name");
 
+        UserNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserNameTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ownerNamePanel7Layout = new javax.swing.GroupLayout(ownerNamePanel7);
         ownerNamePanel7.setLayout(ownerNamePanel7Layout);
         ownerNamePanel7Layout.setHorizontalGroup(
@@ -277,7 +285,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel7Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel7Layout.setVerticalGroup(
@@ -285,7 +293,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel7Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -294,9 +302,9 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         ownerNameLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerNameLabel8.setText("Password");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        PasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                PasswordField1ActionPerformed(evt);
             }
         });
 
@@ -307,7 +315,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel8Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel8Layout.setVerticalGroup(
@@ -315,7 +323,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel8Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -331,7 +339,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel9Layout.createSequentialGroup()
                 .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ownerNamePanel9Layout.setVerticalGroup(
@@ -339,7 +347,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             .addGroup(ownerNamePanel9Layout.createSequentialGroup()
                 .addGroup(ownerNamePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ownerNameLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
@@ -412,7 +420,19 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void trialBlnceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialBlnceBtnActionPerformed
-      /*  
+      
+        conSQL sqlConn = new conSQL();
+        String ownerName= ownerNameTxtField.getText();
+        String companyName= CompanyNameTxtField.getText();
+        String address= AddressTextField.getText();
+        int Vat= parseInt(VatTextField.getText());
+        String mail= EmailTextField.getText();
+        int phone=parseInt(PhoneNoTextField.getText());
+        String username= UserNameTextField.getText();
+        String psw1= PasswordField1.getText();
+        String psw2= PasswordField2.getText();
+        sqlConn.SubmitCompanyData( ownerName,  companyName,  address,  Vat,  mail,  phone,  username,  psw1);
+        /*  
         try{
             Class.forName("com.mysql.jdbc.Driver");
             sqlconn = DriverManager.getConnection("dataconn","username","psw"); 
@@ -440,9 +460,13 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_trialBlnceBtnActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void PasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_PasswordField1ActionPerformed
+
+    private void UserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserNameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,18 +505,17 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AddressTextField;
+    private javax.swing.JTextField CompanyNameTxtField;
+    private javax.swing.JTextField EmailTextField;
+    private javax.swing.JPasswordField PasswordField1;
+    private javax.swing.JPasswordField PasswordField2;
+    private javax.swing.JTextField PhoneNoTextField;
+    private javax.swing.JTextField UserNameTextField;
+    private javax.swing.JTextField VatTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel ownerNameLabel;
     private javax.swing.JLabel ownerNameLabel2;
     private javax.swing.JLabel ownerNameLabel3;
@@ -511,6 +534,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     private javax.swing.JPanel ownerNamePanel7;
     private javax.swing.JPanel ownerNamePanel8;
     private javax.swing.JPanel ownerNamePanel9;
+    private javax.swing.JTextField ownerNameTxtField;
     private javax.swing.JButton trialBlnceBtn;
     // End of variables declaration//GEN-END:variables
 }
