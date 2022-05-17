@@ -221,6 +221,11 @@ public class HomeScreen extends javax.swing.JFrame {
 
         searchBtn.setBackground(new java.awt.Color(50, 53, 55));
         searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/phoenix/assets/search.png"))); // NOI18N
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LedgerTitlePanelLayout = new javax.swing.GroupLayout(LedgerTitlePanel);
         LedgerTitlePanel.setLayout(LedgerTitlePanelLayout);
@@ -481,12 +486,18 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
         // TODO add your handling code here:
-        conSQL sqlConn = new conSQL();
-        sqlConn.startDBConnection();
+        
         HomeScreen hs = new HomeScreen();
         this.setVisible(false);
         hs.setVisible(true);
     }//GEN-LAST:event_refreshBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        System.out.println("print");
+        conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     /**
      * @param args the command line arguments
