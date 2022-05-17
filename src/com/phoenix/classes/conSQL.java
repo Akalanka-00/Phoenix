@@ -69,7 +69,19 @@ public class conSQL {
     public void SubmitCompanyData(String ownerName, String companyName, String address, int Vat, String mail, int phone, String username, String psw){
         System.out.println(ownerName+  companyName+  address+  Vat+  mail+  phone+  username+  psw);
     }
-
+    
+    public Boolean loginCredentials(String uname, String psw){
+        
+        String sqlUname = "";
+        String sqlPsw = "";
+        
+        if(uname.equals(sqlUname) && psw.equals(sqlPsw)){
+            return true;
+        }
+        else{
+        return false;
+        }
+    }
 
 
 }
