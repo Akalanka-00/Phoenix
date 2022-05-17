@@ -4,7 +4,6 @@
  */
 package com.phoenix.screens;
 
-import com.phoenix.DataModels.AccountData;
 
 /**
  *

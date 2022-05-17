@@ -8,9 +8,6 @@ package com.phoenix.classes;
  *
  * @author Lucifer
  */
-public class test {
+public class DataValidation {
     
 }
-//bhgvugyo
-//bhig9ghuibu
-//thd
