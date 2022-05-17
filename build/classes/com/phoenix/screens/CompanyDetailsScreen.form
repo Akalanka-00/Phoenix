@@ -54,7 +54,7 @@
               <Component id="ownerNamePanel6" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="304" max="32767" attributes="0"/>
-                  <Component id="trialBlnceBtn" min="-2" pref="108" max="-2" attributes="0"/>
+                  <Component id="okBtn" min="-2" pref="108" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Component id="ownerNamePanel7" alignment="0" max="32767" attributes="0"/>
@@ -85,7 +85,7 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="ownerNamePanel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="trialBlnceBtn" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="okBtn" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -529,12 +529,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="trialBlnceBtn">
+        <Component class="javax.swing.JButton" name="okBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="OK"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trialBlnceBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
