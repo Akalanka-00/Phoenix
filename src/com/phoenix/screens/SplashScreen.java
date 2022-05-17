@@ -107,7 +107,7 @@ public class SplashScreen extends javax.swing.JFrame {
                     Logger.getLogger(SplashScreen.class.getName()).log(Level.SEVERE, null, ex);
                 }
             
-            test cd = new test();
+            CompanyDetailsScreen cd = new CompanyDetailsScreen();
             sp.setVisible(false);
             cd.setVisible(true);
                 
