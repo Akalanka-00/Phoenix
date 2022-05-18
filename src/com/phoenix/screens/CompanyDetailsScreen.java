@@ -8,6 +8,7 @@ import com.phoenix.classes.conSQL;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -417,11 +418,13 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void trialBlnceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialBlnceBtnActionPerformed
       
         conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
         String ownerName= ownerNameTxtField.getText();
         String companyName= CompanyNameTxtField.getText();
         String address= AddressTextField.getText();
@@ -431,33 +434,17 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         String username= UserNameTextField.getText();
         String psw1= PasswordField1.getText();
         String psw2= PasswordField2.getText();
-        sqlConn.SubmitCompanyData( ownerName,  companyName,  address,  Vat,  mail,  phone,  username,  psw1);
-        /*  
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            sqlconn = DriverManager.getConnection("dataconn","username","psw"); 
-            pst = sqlconn.prepareStatement("insert into phoenix(ownerName,companyName,address,vatNo,email,phoneNo,userName,password,repassword)value(?,?,?,?,?,?,?,?,?)");
-            
-            pst.setString(1, jtxtownerName.getText());
-            pst.setString(2, jtxtcompanyName.getText());
-            pst.setString(3, jtxtaddress.getText());
-            pst.setString(4, jtxtvatNo.getText());
-            pst.setString(5, jtxtemail.getText());
-            pst.setString(6, jtxtphoneNo.getText());
-            pst.setString(7, jtxtuserName.getText());
-            pst.setString(8, jtxtpassword.getText());
-            pst.setString(9, jtxtrepassword.getText());
-            
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this,"Company Details successfully add");
-            upDateDB();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }*/
-        UserLogin userLog = new UserLogin();
+        
+       
+        if(sqlConn.SubmitCompanyData( ownerName,  companyName,  address,  Vat,  mail,  phone,  username,  psw1)){
+         UserLogin userLog = new UserLogin();
         userLog.setVisible(true);
         dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(new JFrame(),"Couldn't connect with the server \nPlease try again!");  
+        }
+        
     }//GEN-LAST:event_trialBlnceBtnActionPerformed
 
     private void PasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordField1ActionPerformed

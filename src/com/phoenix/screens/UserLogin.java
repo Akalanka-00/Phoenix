@@ -157,6 +157,7 @@ public class UserLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void pswTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswTextFieldActionPerformed
@@ -167,6 +168,7 @@ public class UserLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CompanyDetailsScreen comDetail = new CompanyDetailsScreen();
         comDetail.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

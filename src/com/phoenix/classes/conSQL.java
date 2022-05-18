@@ -104,8 +104,21 @@ public class conSQL {
         return discription;
     }
 
-    public void SubmitCompanyData(String ownerName, String companyName, String address, int Vat, String mail, int phone, String username, String psw) {
-        System.out.println(ownerName + companyName + address + Vat + mail + phone + username + psw);
+    public Boolean SubmitCompanyData(String ownerName, String companyName, String address, int Vat, String mail, int phone, String username, String psw) {
+        System.out.println(ownerName +" "+ companyName +" "+ address +" "+ Vat +" "+ mail +" "+ phone +" "+ username +" "+ psw);
+        
+        query = "Insert into company values"+
+                "('"+ companyName +"','"+ ownerName +"','"+ mail +"','"+ address +"','"+ phone +"','"+ username +"','"+ psw +"','"+ 
+                Vat+"','"+"CID"+"')";
+        try {      
+            st.executeUpdate(query);
+            return true;
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
     
     public Boolean loginCredentials(String uname,String psw){
@@ -115,9 +128,9 @@ public class conSQL {
         try {
             ResultSet rs = st.executeQuery(query);
             while(rs.next()){
-                if(!rs.getString("username").equals("") && !rs.getString("password").equals("")){
+                if(!rs.getString("username").equals("") && !rs.getString("u_password").equals("")){
                      sqlUname = rs.getString("username");
-                sqlPsw = rs.getString("password");
+                sqlPsw = rs.getString("u_password");
                 }
                
             }
@@ -128,7 +141,7 @@ public class conSQL {
         if( (sqlUname.equals(uname) && sqlPsw.equals(psw))){
             return true;
         }else{
-            System.out.println("SqlUsername\t:" + sqlUname+"Username\t:" + uname+"Password\t:" + psw+"SqlPsw\t:" + sqlPsw);
+          //  System.out.println("SqlUsername\t:" + sqlUname+"Username\t:" + uname+"Password\t:" + psw+"SqlPsw\t:" + sqlPsw);
         return false;
         }
               
