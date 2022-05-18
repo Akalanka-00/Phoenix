@@ -4,6 +4,7 @@
  */
 package com.phoenix.screens;
 
+import com.phoenix.classes.conSQL;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -95,6 +96,9 @@ public class SplashScreen extends javax.swing.JFrame {
             SplashScreen sp = new SplashScreen();
             sp.setVisible(true);
             
+             conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
+            
             
             try {
             for (int i = 0; i <= 100; i++) {
@@ -107,9 +111,9 @@ public class SplashScreen extends javax.swing.JFrame {
                     Logger.getLogger(SplashScreen.class.getName()).log(Level.SEVERE, null, ex);
                 }
             
-            CompanyDetailsScreen cd = new CompanyDetailsScreen();
+            UserLogin ul = new UserLogin();
             sp.setVisible(false);
-            cd.setVisible(true);
+            ul.setVisible(true);
                 
             
         
