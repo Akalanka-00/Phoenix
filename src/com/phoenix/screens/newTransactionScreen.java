@@ -6,6 +6,9 @@ package com.phoenix.screens;
 
 import com.phoenix.classes.conSQL;
 import java.sql.*;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,10 +19,12 @@ public class newTransactionScreen extends javax.swing.JFrame {
     /**
      * Creates new form newTransactionScreen
      */
+    
+    conSQL sqlConn = new conSQL();
+    
     public newTransactionScreen() {
         initComponents();   
         
-        conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
         
         try {
@@ -268,8 +273,64 @@ public class newTransactionScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-         this.setVisible(false);
+        
+        sqlConn.startDBConnection();
+        
+        String drAcc = jComboBox1.getSelectedItem().toString();
+        String crAcc = jComboBox2.getSelectedItem().toString();
+        float amount = Float.parseFloat(jTextField1.getText());
+        String vn = jTextField2.getText();
+        String pr = jTextField3.getText();
+        String desc = jTextArea1.getText();
+        
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime = LocalTime.now();
+        
+        if (!"".equals(amount)){
+            try {
+                String query = "select count(*) as count from ledger;";
+                ResultSet rs = sqlConn.st.executeQuery(query);
+                rs.next();
+                
+                int nextId = rs.getInt("count") + 1;
+                
+                query = "select ledger_id from main where ledger_name = '" + drAcc + "';";
+                rs = sqlConn.st.executeQuery(query);
+                rs.next();
+                
+                String drId = rs.getString("ledger_id");
+                
+                query = "select ledger_id from main where ledger_name = '" + crAcc + "';";
+                rs = sqlConn.st.executeQuery(query);
+                rs.next();
+                
+                String crId = rs.getString("ledger_id");
+                
+                query = "insert into ledger values('T" + nextId + "', '" +
+                        java.time.LocalDate.now() + "', '" +
+                        dtf.format(localTime) + "', " +
+                        amount + ", '" +
+                        crId + "', '" +
+                        drId + "', '" +
+                        desc + "');";
+                sqlConn.st.executeUpdate(query);
+
+                sqlConn.conn.close();
+            } catch (SQLException e) {
+                System.out.println("error available : " + e.toString());
+            }
+            finally{
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jComboBox1.setSelectedIndex(0);
+                jComboBox2.setSelectedIndex(0);
+                jTextArea1.setText("");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Textboxes can not be empty..!", "InfoBox: Warning...", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
