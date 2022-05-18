@@ -513,14 +513,13 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("print");
-        conSQL sqlConn = new conSQL();
-        sqlConn.startDBConnection();
+       
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
          conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
         DefaultListModel m = new DefaultListModel();
         for(int i=0; i<sqlConn.rowCount();i++){
          m.addElement(sqlConn.accNames(i));
@@ -534,8 +533,9 @@ public class HomeScreen extends javax.swing.JFrame {
     private void LedgerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LedgerListMouseClicked
         // TODO add your handling code here:
         conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
         int selectedIndex = LedgerList.getSelectedIndex();
-        SelectedLedgerTitleLabel.setText(sqlConn.accTitle(selectedIndex));
+        SelectedLedgerTitleLabel.setText(sqlConn.accNames(selectedIndex));
         SelectedLedgerDis.setText(sqlConn.accDiscription(selectedIndex));
         
     }//GEN-LAST:event_LedgerListMouseClicked
