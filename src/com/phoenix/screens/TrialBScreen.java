@@ -60,9 +60,9 @@ public class TrialBScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        DynamicTotalDebitLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        DynamicTotalCreditLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -307,12 +307,12 @@ public class TrialBScreen extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Total Debit");
 
-        jLabel5.setText("LKR 50000");
+        DynamicTotalDebitLabel.setText("LKR 50000");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Total Debit");
 
-        jLabel7.setText("LKR 50000");
+        DynamicTotalCreditLabel.setText("LKR 50000");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -326,11 +326,11 @@ public class TrialBScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DynamicTotalDebitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DynamicTotalCreditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -340,10 +340,10 @@ public class TrialBScreen extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(DynamicTotalCreditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DynamicTotalDebitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
                         .addComponent(jLabel3)))
@@ -424,6 +424,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         }
         //System.out.println(sqlConn.rowCount("main"));
         executeTB();
+        finalBalance();
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -454,14 +455,40 @@ public class TrialBScreen extends javax.swing.JFrame {
 
            if(TotalDebit >= TotalCredit){
                row[2] =TotalDebit;
+               row[3] = null;
              //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(), TotalDebit+"", null});
            }else{
+               row[2] = null;
                row[3] =TotalCredit;
              //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(),null, TotalCredit+""});
            }
            model.addRow(row);
             
         }
+    }
+    
+    private void finalBalance(){
+        DefaultTableModel model = (DefaultTableModel)TrialBalanceTable.getModel();
+        double TotalCredit =0;
+        double TotalDebit = 0;
+        
+        
+        for(int i=0; i < model.getRowCount(); i++){
+            
+            if(model.getValueAt(i, 2)!=null && model.getValueAt(i, 3)==null){
+                TotalDebit = TotalDebit + (double) model.getValueAt(i, 2);
+            }
+            
+            if(model.getValueAt(i, 3)!=null && model.getValueAt(i, 2)==null){
+                TotalCredit = TotalCredit + (double) model.getValueAt(i, 3);
+            }
+        }
+        
+        DynamicTotalDebitLabel.setText(TotalDebit+"");
+        DynamicTotalCreditLabel.setText(TotalCredit+"");
+        
+        
+        
     }
     public void setTitleDate(){   
         
@@ -501,6 +528,8 @@ public class TrialBScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DynamicTotalCreditLabel;
+    private javax.swing.JLabel DynamicTotalDebitLabel;
     private javax.swing.JLabel FromLabel;
     private javax.swing.JComboBox<String> MonthFromComboBox;
     private javax.swing.JPanel OptionPanel;
@@ -518,9 +547,7 @@ public class TrialBScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
