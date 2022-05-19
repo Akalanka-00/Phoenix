@@ -7,6 +7,8 @@ package com.phoenix.classes;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -177,19 +179,26 @@ public class conSQL {
         return count;
     }
     
-    public double TransactionTotalAmount(String dc,String fid){
+    public double TransactionTotalAmount(String dc,String fid, java.util.Date date1, java.util.Date date2){
         double amount = 0.0;
-        query = "select * from ledger where "+ dc +"='" + fid +"'";
+        
+            query = 
+                "select * from ledger where ("+ dc +"='" + fid +"' AND (t_date >= '"+date1+"' AND t_date<= '"+date2+"'))";
+        
+        // System.out.println(query);
         try {
             ResultSet rs = st.executeQuery(query);
+           // System.out.println(date1+"hii"+date2);
             while(rs.next()){
                 amount = amount + rs.getDouble("amount");
+                System.out.println(rs.getDouble("amount")+"hii");
             }
             
             
         } catch (SQLException ex) {
             Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
         return amount;
     }
@@ -212,6 +221,8 @@ public class conSQL {
         return name;
         
     }
-    
+
+  
+
 
 }

@@ -7,8 +7,13 @@ package com.phoenix.screens;
 import com.phoenix.classes.conSQL;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +28,8 @@ public class TrialBScreen extends javax.swing.JFrame {
     
     public List<String> accNameIdList = new ArrayList();
     public String[] cd = {"Cr_account", "Dr_account"};
+    public int[] endDates = {31,28,31,31,30,31,30,31,30,31,30,31};
+    public DefaultTableModel model;
     
     
     public TrialBScreen() {
@@ -30,7 +37,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         ComboBoxChanged();
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -285,19 +292,14 @@ public class TrialBScreen extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
+        TrialBalanceTable.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(TrialBalanceTable);
+        TrialBalanceTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Status");
@@ -392,10 +394,15 @@ public class TrialBScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ComboBoxChanged(){
+       model = (DefaultTableModel)TrialBalanceTable.getModel();
+
         ToYearComboBox.addItemListener(new ItemListener(){
             public void itemStateChanged (ItemEvent arg0){
                 
                 setTitleDate();
+                executeTB();
+                finalBalance();
+                model.fireTableDataChanged();
             }
         });
         
@@ -403,6 +410,29 @@ public class TrialBScreen extends javax.swing.JFrame {
             public void itemStateChanged (ItemEvent arg0){
                 
                 setTitleDate();
+                executeTB();
+                finalBalance();
+                model.fireTableDataChanged();
+            }
+        });
+        
+         YearFromComboBox.addItemListener(new ItemListener(){
+            public void itemStateChanged (ItemEvent arg0){
+                
+                setTitleDate();
+                executeTB();
+                finalBalance();
+                model.fireTableDataChanged();
+            }
+        });
+         
+          MonthFromComboBox.addItemListener(new ItemListener(){
+            public void itemStateChanged (ItemEvent arg0){
+                
+                setTitleDate();
+                executeTB();
+                finalBalance();
+                model.fireTableDataChanged();
             }
         });
     }
@@ -434,22 +464,40 @@ public class TrialBScreen extends javax.swing.JFrame {
     private void executeTB(){
         conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
-        DefaultTableModel model = (DefaultTableModel)TrialBalanceTable.getModel();
+         model = (DefaultTableModel)TrialBalanceTable.getModel();
+        
            model.setRowCount(0);
-        for(int i=0; i < accNameIdList.size();i++){
+          try {  
+         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String Strdate1 = YearFromComboBox.getSelectedItem().toString() + "-"+ (YearFromComboBox.getSelectedIndex()+1+"-1");
+            Date date1;
+       
+            date1 = format.parse(Strdate1);
+        
+            
+            String Strdate2 = ToYearComboBox.getSelectedItem().toString() + "-"+ (ToMonthComboBox.getSelectedIndex()+1+"-"+ endDates[ToMonthComboBox.getSelectedIndex()]);
+            Date date2 = format.parse(Strdate2);
+            //System.out.println(date1 + "And" + date2);
+            for(int i=0; i < accNameIdList.size();i++){
             double TotalCredit =0;
             double TotalDebit = 0;
            //int noOfAcc =sqlConn.TransactionCount(cd[0].toString(),accNameIdList.get(i));
             
-            TotalDebit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString());
-            TotalCredit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString());
+            TotalDebit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString(),date1,date2);
+            TotalCredit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString(),date1,date2);
            // System.out.println(cd[0].toString());
            // System.out.println(TotalCredit +" AND "+TotalDebit);
             
            Object[] row = new Object[4];
+           System.out.println(TotalDebit + "AND "+ TotalCredit);
            
-           row[0] = accNameIdList.get(i).toString();
+          // if(TotalDebit!=0 || TotalCredit!=0){
+               
+                row[0] = accNameIdList.get(i).toString();
            row[1] = sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString();
+           
+          // model.setValueAt(accNameIdList.get(i).toString(),i,0);
+         //   model.setValueAt(sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(),i,1);
            
            
 
@@ -462,9 +510,20 @@ public class TrialBScreen extends javax.swing.JFrame {
                row[3] =TotalCredit;
              //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(),null, TotalCredit+""});
            }
+           System.out.println(row[0]+"hii");
            model.addRow(row);
+           model.fireTableDataChanged();
+        //   TrialBalanceTable.repaint();
             
+           }
+           
+          
+       // }
+        
+            } catch (ParseException ex) {
+            Logger.getLogger(TrialBScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     private void finalBalance(){
