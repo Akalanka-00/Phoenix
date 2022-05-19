@@ -18,10 +18,7 @@ public class conSQL {
     public String query;
 
     public static void main(String args[]) {
-        //  conSQL sql = new conSQL();
-        //  sql.startDBConnection();
-        //  sql.rowCount();
-        // sql.accNames(0);
+       
     }
 
     public void startDBConnection() {
@@ -46,8 +43,8 @@ public class conSQL {
 
     }
 
-    public int rowCount() {
-         query = "select count(*) from  main";
+    public int rowCount(String tableName) {
+         query = "select count(*) from "+ tableName;
          int count =0;
         try {
             ResultSet rs = st.executeQuery(query);
@@ -63,14 +60,14 @@ public class conSQL {
         return count;
     }
 
-    public String accNames(int r) {
+    public String accNames(int r, String getStr) {
         query = "select * from  main";
         int count = 0;
         String accName = "";
         try {
             ResultSet rs = st.executeQuery(query);          
             while(rs.next()){
-                accName = rs.getString("ledger_name");
+                accName = rs.getString(getStr);
                 if(count == r){
                     break;
                 }
@@ -146,5 +143,75 @@ public class conSQL {
         }
               
     }
+    
+    public String companyName(){
+        String name = "";      
+        query = "select * from  company";
+        try {
+            ResultSet rs = st.executeQuery(query);          
+            while(rs.next()){
+                name = rs.getString("c_name");               
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return name;
+    }
+    
+    public int TransactionCount(String dc,String fid){
+        query = "select count(*) from ledger where "+ dc +"='" + fid +"';";
+         int count =0;
+        try {
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                count = rs.getInt(1);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return count;
+    }
+    
+    public double TransactionTotalAmount(String dc,String fid){
+        double amount = 0.0;
+        query = "select * from ledger where "+ dc +"='" + fid +"'";
+        try {
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                amount = amount + rs.getDouble("amount");
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return amount;
+    }
+    
+    
+    public String transactionAccName(String id){
+        query = "select * from main where ledger_id = '"+id+"'" ;
+        String name = "";
+        
+        try {
+            ResultSet rs = st.executeQuery(query);
+             while(rs.next()){
+                 name = rs.getString("ledger_name");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        return name;
+        
+    }
+    
 
 }

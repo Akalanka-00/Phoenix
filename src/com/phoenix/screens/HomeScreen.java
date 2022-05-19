@@ -518,11 +518,11 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-         conSQL sqlConn = new conSQL();
+        conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
         DefaultListModel m = new DefaultListModel();
-        for(int i=0; i<sqlConn.rowCount();i++){
-         m.addElement(sqlConn.accNames(i));
+        for(int i=0; i<sqlConn.rowCount("main");i++){
+         m.addElement(sqlConn.accNames(i,"ledger_name"));
           
         }
         
@@ -535,7 +535,7 @@ public class HomeScreen extends javax.swing.JFrame {
         conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
         int selectedIndex = LedgerList.getSelectedIndex();
-        SelectedLedgerTitleLabel.setText(sqlConn.accNames(selectedIndex));
+        SelectedLedgerTitleLabel.setText(sqlConn.accNames(selectedIndex,"ledger_name"));
         SelectedLedgerDis.setText(sqlConn.accDiscription(selectedIndex));
         
     }//GEN-LAST:event_LedgerListMouseClicked

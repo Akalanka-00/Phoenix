@@ -4,6 +4,13 @@
  */
 package com.phoenix.screens;
 
+import com.phoenix.classes.conSQL;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lucifer
@@ -13,8 +20,15 @@ public class TrialBScreen extends javax.swing.JFrame {
     /**
      * Creates new form TrialBScreen
      */
+    
+    public List<String> accNameIdList = new ArrayList();
+    public String[] cd = {"Cr_account", "Dr_account"};
+    
+    
     public TrialBScreen() {
         initComponents();
+        ComboBoxChanged();
+        
     }
 
     /**
@@ -37,14 +51,25 @@ public class TrialBScreen extends javax.swing.JFrame {
         MonthFromComboBox = new javax.swing.JComboBox<>();
         FromLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        companyNameTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        TrialDesDateLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TrialBalanceTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         bakePanel.setBackground(new java.awt.Color(70, 73, 75));
 
@@ -117,40 +142,40 @@ public class TrialBScreen extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(70, 73, 75));
 
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Company Name");
+        companyNameTitle.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        companyNameTitle.setForeground(new java.awt.Color(255, 255, 255));
+        companyNameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        companyNameTitle.setText("Company Name");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Trial Balance");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("As for Dec 31, XXXX");
+        TrialDesDateLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        TrialDesDateLabel.setForeground(new java.awt.Color(255, 255, 255));
+        TrialDesDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TrialDesDateLabel.setText("As for Dec 31, XXXX");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(companyNameTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(TrialDesDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(companyNameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel3))
+                .addComponent(TrialDesDateLabel))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TrialBalanceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -258,24 +283,71 @@ public class TrialBScreen extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TrialBalanceTable);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Status");
+
+        jLabel3.setText("This trial Balance is correct");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Total Debit");
+
+        jLabel5.setText("LKR 50000");
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Total Debit");
+
+        jLabel7.setText("LKR 50000");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel3)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout bakePanelLayout = new javax.swing.GroupLayout(bakePanel);
@@ -297,7 +369,7 @@ public class TrialBScreen extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -319,9 +391,83 @@ public class TrialBScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ComboBoxChanged(){
+        ToYearComboBox.addItemListener(new ItemListener(){
+            public void itemStateChanged (ItemEvent arg0){
+                
+                setTitleDate();
+            }
+        });
+        
+        ToMonthComboBox.addItemListener(new ItemListener(){
+            public void itemStateChanged (ItemEvent arg0){
+                
+                setTitleDate();
+            }
+        });
+    }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
+        
+        //set trial header
+        companyNameTitle.setText(sqlConn.companyName());
+        
+        
+         setTitleDate();
+        
+        //getAccNameList
+        accNameIdList.clear();
+        for(int i=0; i<sqlConn.rowCount("main");i++){
+          accNameIdList.add(sqlConn.accNames(i,"ledger_id"));
+        }
+        //System.out.println(sqlConn.rowCount("main"));
+        executeTB();
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
+    
+    private void executeTB(){
+        conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
+        DefaultTableModel model = (DefaultTableModel)TrialBalanceTable.getModel();
+           model.setRowCount(0);
+        for(int i=0; i < accNameIdList.size();i++){
+            double TotalCredit =0;
+            double TotalDebit = 0;
+           //int noOfAcc =sqlConn.TransactionCount(cd[0].toString(),accNameIdList.get(i));
+            
+            TotalDebit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString());
+            TotalCredit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString());
+           // System.out.println(cd[0].toString());
+           // System.out.println(TotalCredit +" AND "+TotalDebit);
+            
+           Object[] row = new Object[4];
+           
+           row[0] = accNameIdList.get(i).toString();
+           row[1] = sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString();
+           
+           
+
+           if(TotalDebit >= TotalCredit){
+               row[2] =TotalDebit;
+             //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(), TotalDebit+"", null});
+           }else{
+               row[3] =TotalCredit;
+             //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(),null, TotalCredit+""});
+           }
+           model.addRow(row);
+            
+        }
+    }
+    public void setTitleDate(){   
+        
+        TrialDesDateLabel.setText("As for "+ToMonthComboBox.getSelectedItem().toString().substring(0,3)+", "+ToYearComboBox.getSelectedItem().toString());
+      
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -363,14 +509,20 @@ public class TrialBScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ToMonthComboBox;
     private javax.swing.JComboBox<String> ToYearComboBox;
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JTable TrialBalanceTable;
+    private javax.swing.JLabel TrialDesDateLabel;
     private javax.swing.JComboBox<String> YearFromComboBox;
     private javax.swing.JPanel bakePanel;
+    private javax.swing.JLabel companyNameTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
