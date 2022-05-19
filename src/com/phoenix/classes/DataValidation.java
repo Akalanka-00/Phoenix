@@ -13,4 +13,12 @@ public class DataValidation {
     public static void main (String args[]){
     
     }
+    
+    public Boolean RepasswordValid(String psw1, String psw2){
+        return psw1.equals(psw2);
+        
+    }
+    
+    
+    
 }
