@@ -183,7 +183,7 @@ public class conSQL {
         double amount = 0.0;
         
             query = 
-                "select * from ledger where ("+ dc +"='" + fid +"' AND (t_date >= '"+date1+"' AND t_date<= '"+date2+"'))";
+                "select * from ledger where ("+ dc +"='" + fid +"' AND (t_date BETWEEN'"+date1+"' AND '"+date2+"'))";
         
         // System.out.println(query);
         try {
