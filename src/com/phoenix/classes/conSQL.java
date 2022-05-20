@@ -179,19 +179,20 @@ public class conSQL {
         return count;
     }
     
-    public double TransactionTotalAmount(String dc,String fid, java.util.Date date1, java.util.Date date2){
+    public double TransactionTotalAmount(String dc,String fid, String duration){
         double amount = 0.0;
         
             query = 
-                "select * from ledger where ("+ dc +"='" + fid +"' AND (t_date BETWEEN'"+date1+"' AND '"+date2+"'))";
+                "select * from ledger where ("+ dc +"='" + fid +"') "+duration+"";
         
-        // System.out.println(query);
+         System.out.println(query);
         try {
             ResultSet rs = st.executeQuery(query);
            // System.out.println(date1+"hii"+date2);
             while(rs.next()){
                 amount = amount + rs.getDouble("amount");
-                System.out.println(rs.getDouble("amount")+"hii");
+                JOptionPane.showMessageDialog(new JFrame(),amount);  
+                //System.out.println(rs.getDouble("amount")+"hii");
             }
             
             
@@ -220,6 +221,36 @@ public class conSQL {
          
         return name;
         
+    }
+    
+    public String DateDuration(int startYear, int startMonth, int endYear, int endMonth){
+        String dates = "";
+        int tempYear = startYear;
+        int tempMonth = startMonth;
+        String months[] = {"January","February"," March"," April"," May"," June ","July ","August ","September"," October"," November"," December"};
+        
+        while (true){
+            
+            if(tempYear==endYear && tempMonth==endMonth){
+                break;
+            }
+            
+            if(tempMonth==12){
+                tempMonth=0;
+                tempYear++;                
+            }
+            tempMonth++;
+            if(dates!=""){
+            dates = dates+" OR t_time LIKE '%" + months[tempMonth-1].substring(0, 3) +" % "+ tempYear+"'" ;
+            }else{
+             dates = dates+"AND ( t_time LIKE '%" + months[tempMonth-1].substring(0, 3) +" % "+ tempYear+"'" ;
+            }
+            
+        }
+        if(dates!="")
+        dates = dates + ")";
+       // System.out.println(dates);
+        return dates;
     }
 
   
