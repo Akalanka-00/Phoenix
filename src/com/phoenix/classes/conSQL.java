@@ -241,9 +241,9 @@ public class conSQL {
             }
             tempMonth++;
             if(dates!=""){
-            dates = dates+" OR t_time LIKE '%" + months[tempMonth-1].substring(0, 3) +" % "+ tempYear+"'" ;
+            dates = dates+" OR t_date LIKE '%" + months[tempMonth-1].substring(0, 3) +" % "+ tempYear+"'" ;
             }else{
-             dates = dates+"AND ( t_time LIKE '%" + months[tempMonth-1].substring(0, 3) +" % "+ tempYear+"'" ;
+             dates = dates+"AND ( t_date LIKE '%" + months[tempMonth-1].substring(0, 3) +" % "+ tempYear+"'" ;
             }
             
         }
