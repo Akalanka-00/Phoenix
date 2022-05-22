@@ -409,7 +409,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
         
         
         
-        if (dataVali.Validation( ownerName,  companyName,  address,  sVat,  mail,  sphone,  username,  psw1, psw2)){
+        if (dataVali.CompanyValidation( ownerName,  companyName,  address,  sVat,  mail,  sphone,  username,  psw1, psw2)){
             
             int Vat= parseInt(VatTextField.getText());
             int phone=parseInt(PhoneNoTextField.getText());
@@ -429,6 +429,7 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
 
     private void PasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordField1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_PasswordField1ActionPerformed
 
     private void UserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextFieldActionPerformed
