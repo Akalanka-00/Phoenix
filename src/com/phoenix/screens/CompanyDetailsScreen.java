@@ -391,23 +391,28 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void trialBlnceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialBlnceBtnActionPerformed
-      
+     
         DataValidation dataVali = new DataValidation();
         conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
-        
+      
         String ownerName= ownerNameTxtField.getText();
         String companyName= CompanyNameTxtField.getText();
         String address= AddressTextField.getText();
-        int Vat= parseInt(VatTextField.getText());
+        String sVat= VatTextField.getText();
         String mail= EmailTextField.getText();
-        int phone=parseInt(PhoneNoTextField.getText());
+        String sphone=PhoneNoTextField.getText();
         String username= UserNameTextField.getText();
         String psw1= PasswordField1.getText();
         String psw2= PasswordField2.getText();
         
-     
-        if (dataVali.RepasswordValid(psw1, psw2)){
+        
+        
+        
+        if (dataVali.Validation( ownerName,  companyName,  address,  sVat,  mail,  sphone,  username,  psw1, psw2)){
+            
+            int Vat= parseInt(VatTextField.getText());
+            int phone=parseInt(PhoneNoTextField.getText());
             
             if(sqlConn.SubmitCompanyData( ownerName,  companyName,  address,  Vat,  mail,  phone,  username,  psw1)){
              UserLogin userLog = new UserLogin();
@@ -416,11 +421,9 @@ public class CompanyDetailsScreen extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(new JFrame(),"Couldn't connect with the server \nPlease try again!");  
-            }
-        } else {
-            JOptionPane.showMessageDialog(new JFrame(),"Re-password is not same!!");
-        }
-       
+            }         
+
+        } 
         
     }//GEN-LAST:event_trialBlnceBtnActionPerformed
 
