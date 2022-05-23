@@ -122,24 +122,24 @@ public class conSQL {
         return id;
     }
     
-     public int rowAccCount(String ledgerId, String dc) {
-         query = "select count(*) from ledger where "+dc + "= '"+ledgerId+"'";
-         int count =0;
+    public String retrieveAccNameByID(String id){
+        String name = "";
+        query = "select * from  main where ledger_id = '"+id+"'";
+        
         try {
             ResultSet rs = st.executeQuery(query);
             while(rs.next()){
-                count = rs.getInt(1);
+                name = rs.getString("ledger_name");
             }
             
             
         } catch (SQLException ex) {
             Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(count+" is this");
-        return count;
-    }
 
-     
+
+        return name;
+    }
     public List<String> retrieveAccData(String id, String col,String cd){
         List<String> dataList = new ArrayList<>();
         query = "select * from  ledger where "+cd+" = '"+id+"'";

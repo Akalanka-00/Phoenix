@@ -387,21 +387,21 @@ public class HomeScreen extends javax.swing.JFrame {
 
         DataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Date", "Description", "VN", "PR", "Amount", "Dr/Cr"
+                "Date", "Account ID", "Account Name", "Description", "VN", "PR", "Amount", "Dr/Cr"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, true, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -413,6 +413,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         BasePanel.setViewportView(DataTable);
+        if (DataTable.getColumnModel().getColumnCount() > 0) {
+            DataTable.getColumnModel().getColumn(1).setResizable(false);
+            DataTable.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 45));
 
@@ -563,27 +567,29 @@ public class HomeScreen extends javax.swing.JFrame {
         model.setRowCount(0);
         String ledegerId = sqlConn.retrieveAccId(LedgerList.getSelectedValue());
         System.out.println(ledegerId);
-        int dRows = sqlConn.rowAccCount(ledegerId, cd[1]);
-        int cRows = sqlConn.rowAccCount(ledegerId, cd[0]);
-        int maxR = dRows>cRows?dRows:cRows;
+        
         
         
         String[] CrDr = {"Credit", "Debit"};
         for(int cdCount = 0; cdCount<2;cdCount++){
             List<String> dateList =  sqlConn.retrieveAccData(ledegerId,"t_date", cd[cdCount]);
+            List<String> AccIdList =  sqlConn.retrieveAccData(ledegerId,cdCount==0?cd[1]:cd[0], cd[cdCount]);
             List<String> desList =  sqlConn.retrieveAccData(ledegerId,"transaction_description", cd[cdCount]);
             List<String> AmountList =  sqlConn.retrieveAccData(ledegerId,"amount", cd[cdCount]);
         
         for (int i = 0; i< dateList.size();i++){
             
             System.out.println(desList.get(i));
-            Object[] row = new Object[6];
+            Object[] row = new Object[8];
             row[0] = dateList.get(i);
-            row[1] = desList.get(i);
-            row[2] = 0;
-            row[3] = 0;
-            row[4] = AmountList.get(i);
-            row[5] = CrDr[cdCount];
+            row[1] = AccIdList.get(i);
+            row[2] = sqlConn.retrieveAccNameByID(AccIdList.get(i));
+            row[3] = desList.get(i);
+            row[4] = 0;
+            row[5] = 0;
+            row[6] = AmountList.get(i);
+            row[7] = CrDr[cdCount];
+            
             
             model.addRow(row);
            model.fireTableDataChanged();
