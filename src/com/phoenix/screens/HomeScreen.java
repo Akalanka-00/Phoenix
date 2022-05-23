@@ -19,6 +19,7 @@ import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -74,7 +75,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }
         
         public void setRowCount(){
-            int c = Table.getRowCount();
+            int c = DataTable.getRowCount();
             RowCountLabel.setText(c + " transactions are available");
         }
         
@@ -115,7 +116,7 @@ public class HomeScreen extends javax.swing.JFrame {
         SelectedLedgerDis = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BasePanel = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
+        DataTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         currentTimeLabel = new javax.swing.JLabel();
         RowCountLabel = new javax.swing.JLabel();
@@ -380,7 +381,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(BottomLeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Table.setModel(new javax.swing.table.DefaultTableModel(
+        DataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -400,7 +401,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        BasePanel.setViewportView(Table);
+        BasePanel.setViewportView(DataTable);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 45));
 
@@ -538,8 +539,18 @@ public class HomeScreen extends javax.swing.JFrame {
         SelectedLedgerTitleLabel.setText(sqlConn.accNames(selectedIndex,"ledger_name"));
         SelectedLedgerDis.setText(sqlConn.accDiscription(selectedIndex));
         
+        addDataToTable(selectedIndex);
+        
     }//GEN-LAST:event_LedgerListMouseClicked
 
+    private void addDataToTable(int index){
+        
+        conSQL sqlConn = new conSQL();
+        sqlConn.startDBConnection();
+        DefaultTableModel model = (DefaultTableModel)DataTable.getModel();
+        int rows = rowCount("le");
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -579,6 +590,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane BasePanel;
     private javax.swing.JPanel BottomLeftPanel;
     private javax.swing.JLabel CurrentDateLabel;
+    private javax.swing.JTable DataTable;
     private javax.swing.JPanel FilterPanel;
     private javax.swing.JPanel LedegerViewPanel;
     private javax.swing.JList<String> LedgerList;
@@ -592,7 +604,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel SelectedLedgerDis;
     private javax.swing.JLabel SelectedLedgerTitleLabel;
     private javax.swing.JPanel SelectedLedgerTitlePanel;
-    private javax.swing.JTable Table;
     private javax.swing.JComboBox<String> YearComboBox;
     private javax.swing.JLabel YearFilterLabel;
     private javax.swing.JButton addDataBtn;

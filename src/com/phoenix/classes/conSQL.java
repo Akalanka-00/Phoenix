@@ -102,6 +102,15 @@ public class conSQL {
         
         return discription;
     }
+    
+    
+    public String retrieveAccData(String col, Boolean isInt){
+        String data = "";
+        query = "select * from  main";
+        
+        return data;
+    }
+    
 
     public Boolean SubmitCompanyData(String ownerName, String companyName, String address, int Vat, String mail, int phone, String username, String psw) {
         System.out.println(ownerName +" "+ companyName +" "+ address +" "+ Vat +" "+ mail +" "+ phone +" "+ username +" "+ psw);
