@@ -5,6 +5,8 @@
 package com.phoenix.classes;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -103,12 +105,59 @@ public class conSQL {
         return discription;
     }
     
-    
-    public String retrieveAccData(String col, Boolean isInt){
-        String data = "";
-        query = "select * from  main";
+    public String retrieveAccId(String l_name){
+        String id = "";
+         query = "select ledger_id from  main where ledger_name = '"+l_name+"'";
         
-        return data;
+        try { 
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                id = rs.getString("ledger_id");
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    
+     public int rowAccCount(String ledgerId, String dc) {
+         query = "select count(*) from ledger where "+dc + "= '"+ledgerId+"'";
+         int count =0;
+        try {
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                count = rs.getInt(1);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(count+" is this");
+        return count;
+    }
+
+     
+    public List<String> retrieveAccData(String id, String col,String cd){
+        List<String> dataList = new ArrayList<>();
+        query = "select * from  ledger where "+cd+" = '"+id+"'";
+        
+        try {
+            ResultSet rs = st.executeQuery(query);
+             while(rs.next()){
+                     dataList.add(rs.getString(col));
+                 
+                 
+             }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(conSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return dataList;
     }
     
 

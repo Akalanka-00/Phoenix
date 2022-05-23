@@ -18,8 +18,12 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -80,7 +84,7 @@ public class HomeScreen extends javax.swing.JFrame {
         }
         
         
-        
+        public String[] cd = {"Cr_account", "Dr_account"};
         
     /**
      * This method is called from within the constructor to initialize the form.
@@ -383,19 +387,26 @@ public class HomeScreen extends javax.swing.JFrame {
 
         DataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Date", "Description", "VN", "PR", "Amount", "Date", "Description", "VN", "PR", "Amount"
+                "Date", "Description", "VN", "PR", "Amount", "Dr/Cr"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true, true, true, true
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -529,6 +540,7 @@ public class HomeScreen extends javax.swing.JFrame {
         
         LedgerList.setModel(m);
         LedgerList.setSelectedIndex(0);
+        getDataToTable(0);
     }//GEN-LAST:event_formWindowOpened
 
     private void LedgerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LedgerListMouseClicked
@@ -539,16 +551,57 @@ public class HomeScreen extends javax.swing.JFrame {
         SelectedLedgerTitleLabel.setText(sqlConn.accNames(selectedIndex,"ledger_name"));
         SelectedLedgerDis.setText(sqlConn.accDiscription(selectedIndex));
         
-        addDataToTable(selectedIndex);
+        getDataToTable(selectedIndex);
         
     }//GEN-LAST:event_LedgerListMouseClicked
 
-    private void addDataToTable(int index){
+    private void getDataToTable(int index){
         
         conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
         DefaultTableModel model = (DefaultTableModel)DataTable.getModel();
-        int rows = rowCount("le");
+        model.setRowCount(0);
+        String ledegerId = sqlConn.retrieveAccId(LedgerList.getSelectedValue());
+        System.out.println(ledegerId);
+        int dRows = sqlConn.rowAccCount(ledegerId, cd[1]);
+        int cRows = sqlConn.rowAccCount(ledegerId, cd[0]);
+        int maxR = dRows>cRows?dRows:cRows;
+        
+        
+        String[] CrDr = {"Credit", "Debit"};
+        for(int cdCount = 0; cdCount<2;cdCount++){
+            List<String> dateList =  sqlConn.retrieveAccData(ledegerId,"t_date", cd[cdCount]);
+            List<String> desList =  sqlConn.retrieveAccData(ledegerId,"transaction_description", cd[cdCount]);
+            List<String> AmountList =  sqlConn.retrieveAccData(ledegerId,"amount", cd[cdCount]);
+        
+        for (int i = 0; i< dateList.size();i++){
+            
+            System.out.println(desList.get(i));
+            Object[] row = new Object[6];
+            row[0] = dateList.get(i);
+            row[1] = desList.get(i);
+            row[2] = 0;
+            row[3] = 0;
+            row[4] = AmountList.get(i);
+            row[5] = CrDr[cdCount];
+            
+            model.addRow(row);
+           model.fireTableDataChanged();
+            
+        }
+        }
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(DataTable.getModel());
+        DataTable.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+ 
+        int columnIndexToSort = 1;
+        sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.DESCENDING));
+ 
+        sorter.setSortKeys(sortKeys);
+        sorter.sort();
+        
+        
 
     }
     /**
@@ -619,4 +672,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton searchBtn;
     private javax.swing.JButton trialBlnceBtn;
     // End of variables declaration//GEN-END:variables
+
+    
 }
