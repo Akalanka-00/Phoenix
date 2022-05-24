@@ -4,6 +4,7 @@
  */
 package com.phoenix.screens;
 
+import com.phoenix.classes.DataValidation;
 import com.phoenix.classes.conSQL;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -173,20 +174,25 @@ public class UserLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        DataValidation dataVali = new DataValidation();              
+        
         conSQL sqlConn = new conSQL();
         sqlConn.startDBConnection();
         String uname =usernameTextField.getText();
         String psw = pswTextField.getText();
         
-        if(sqlConn.loginCredentials(uname,psw)){
-            HomeScreen hs = new HomeScreen();
-            hs.setVisible(true);
-            dispose();
+        if (dataVali.LoginValidation( uname, psw)){
+
+            if(sqlConn.loginCredentials(uname,psw)){
+                HomeScreen hs = new HomeScreen();
+                hs.setVisible(true);
+                dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(new JFrame(),"Your username and password are not matched. \nPlease try again!");  
+            }
         }
-        else{
-            JOptionPane.showMessageDialog(new JFrame(),"Your username and password are not matched. \nPlease try again!");  
-        }
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

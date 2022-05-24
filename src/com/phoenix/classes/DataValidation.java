@@ -101,6 +101,20 @@ public class DataValidation {
         
     }
 
+    public boolean LoginValidation(String uname, String psw) {
+        if(uname.trim().isEmpty()){
+            JOptionPane.showMessageDialog(new JFrame(),"Please enter the Username."); 
+            return false;
+        }else if(psw.trim().isEmpty()){
+            JOptionPane.showMessageDialog(new JFrame(),"Please enter the Password."); 
+            return false;
+        }else{
+            return true;
+        }      
+               
+        
+    }
+
     
     
 }
