@@ -579,7 +579,7 @@ public class HomeScreen extends javax.swing.JFrame {
         
         for (int i = 0; i< dateList.size();i++){
             
-            System.out.println(desList.get(i));
+            System.out.println(dateList.get(i));
             Object[] row = new Object[8];
             row[0] = dateList.get(i);
             row[1] = AccIdList.get(i);

@@ -237,11 +237,11 @@ public class conSQL {
         return count;
     }
     
-    public double TransactionTotalAmount(String dc,String fid, String duration){
+    public double TransactionTotalAmount(String dc,String fid, String d1, String d2){
         double amount = 0.0;
         
             query = 
-                "select * from ledger where ("+ dc +"='" + fid +"') "+duration+"";
+                "select * from ledger where ("+ dc +"='" + fid +"') AND t_date BETWEEN '"+d1+"' AND '"+d2+"'";
         
          System.out.println(query);
         try {
@@ -249,7 +249,7 @@ public class conSQL {
            // System.out.println(date1+"hii"+date2);
             while(rs.next()){
                 amount = amount + rs.getDouble("amount");
-                JOptionPane.showMessageDialog(new JFrame(),amount);  
+                //JOptionPane.showMessageDialog(new JFrame(),amount);  
                 //System.out.println(rs.getDouble("amount")+"hii");
             }
             

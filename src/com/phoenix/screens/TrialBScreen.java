@@ -5,6 +5,7 @@
 package com.phoenix.screens;
 
 import com.phoenix.classes.conSQL;
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.text.ParseException;
@@ -70,7 +71,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         TrialBalanceTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        TrialAccuracyLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         DynamicTotalDebitLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -305,7 +306,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Status");
 
-        jLabel3.setText("This trial Balance is correct");
+        TrialAccuracyLabel.setText("This trial Balance is correct");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Total Debit");
@@ -325,7 +326,7 @@ public class TrialBScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TrialAccuracyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -349,7 +350,7 @@ public class TrialBScreen extends javax.swing.JFrame {
                         .addComponent(DynamicTotalDebitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(jLabel3)))
+                        .addComponent(TrialAccuracyLabel)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -478,7 +479,7 @@ public class TrialBScreen extends javax.swing.JFrame {
            model.setRowCount(0);
           try {  
          SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            String Strdate1 = YearFromComboBox.getSelectedItem().toString() + "-"+ (YearFromComboBox.getSelectedIndex()+1+"-1");
+            String Strdate1 = YearFromComboBox.getSelectedItem().toString() + "-"+ (MonthFromComboBox.getSelectedIndex()+1+"-1");
             Date date1;
        
             date1 = format.parse(Strdate1);
@@ -498,10 +499,10 @@ public class TrialBScreen extends javax.swing.JFrame {
           // System.out.println(startYear+"-"+startMonth+"-"+endYear+"-"+endMonth);
                  
             sqlConn.DateDuration(startYear,startMonth,endYear,endMonth);
-            TotalDebit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString(),sqlConn.DateDuration(startYear,startMonth,endYear,endMonth));
-            TotalCredit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString(),sqlConn.DateDuration(startYear,startMonth,endYear,endMonth));
+            TotalDebit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString(),Strdate1,Strdate2);
+            TotalCredit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString(),Strdate1,Strdate2);
            // System.out.println(cd[0].toString());
-           // System.out.println(TotalCredit +" AND "+TotalDebit);
+            System.out.println(Strdate2 +" AND "+Strdate1);
             
            Object[] row = new Object[4];
           // System.out.println(TotalDebit + "AND "+ TotalCredit);
@@ -560,6 +561,20 @@ public class TrialBScreen extends javax.swing.JFrame {
         
         DynamicTotalDebitLabel.setText(TotalDebit+"");
         DynamicTotalCreditLabel.setText(TotalCredit+"");
+        if(DynamicTotalDebitLabel.getText().equals(DynamicTotalCreditLabel.getText())){
+            TrialAccuracyLabel.setText("This trial Balance is correct");
+            TrialAccuracyLabel.setForeground(Color.black);
+            
+            if(DynamicTotalCreditLabel.getText().equals("0.0")){
+                 TrialAccuracyLabel.setText("This trial Balance is empty");
+            TrialAccuracyLabel.setForeground(Color.red);
+            model.setRowCount(0);
+            }
+        }else{
+            TrialAccuracyLabel.setText("This trial Balance is not correct");
+            TrialAccuracyLabel.setForeground(Color.red);
+        }
+        
         
         
         
@@ -612,6 +627,7 @@ public class TrialBScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ToMonthComboBox;
     private javax.swing.JComboBox<String> ToYearComboBox;
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JLabel TrialAccuracyLabel;
     private javax.swing.JTable TrialBalanceTable;
     private javax.swing.JLabel TrialDesDateLabel;
     private javax.swing.JComboBox<String> YearFromComboBox;
@@ -619,7 +635,6 @@ public class TrialBScreen extends javax.swing.JFrame {
     private javax.swing.JLabel companyNameTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
