@@ -140,9 +140,9 @@ public class conSQL {
 
         return name;
     }
-    public List<String> retrieveAccData(String id, String col,String cd){
+    public List<String> retrieveAccData(String id, String col,String cd, String exQuery){
         List<String> dataList = new ArrayList<>();
-        query = "select * from  ledger where "+cd+" = '"+id+"'";
+        query = "select * from  ledger where "+cd+" = '"+id+"'"+exQuery;
         
         try {
             ResultSet rs = st.executeQuery(query);

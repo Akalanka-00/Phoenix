@@ -8,6 +8,8 @@ import com.phoenix.classes.conSQL;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class HomeScreen extends javax.swing.JFrame {
         times();
         dt();
         setRowCount();
+        ComboBoxChanged();
        
         
         Image i;
@@ -108,8 +111,6 @@ public class HomeScreen extends javax.swing.JFrame {
         leftSidePanel = new javax.swing.JPanel();
         LedgerTitlePanel = new javax.swing.JPanel();
         LedgerTitleLabel = new javax.swing.JLabel();
-        SearchBarTxtField = new java.awt.TextField();
-        searchBtn = new javax.swing.JButton();
         LedgerListPanel = new javax.swing.JScrollPane();
         LedgerList = new javax.swing.JList<>();
         BottomLeftPanel = new javax.swing.JPanel();
@@ -233,19 +234,6 @@ public class HomeScreen extends javax.swing.JFrame {
         LedgerTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
         LedgerTitleLabel.setText("Accounts");
 
-        SearchBarTxtField.setBackground(new java.awt.Color(60, 63, 65));
-        SearchBarTxtField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        SearchBarTxtField.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        SearchBarTxtField.setForeground(new java.awt.Color(255, 255, 255));
-
-        searchBtn.setBackground(new java.awt.Color(50, 53, 55));
-        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/phoenix/assets/search.png"))); // NOI18N
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout LedgerTitlePanelLayout = new javax.swing.GroupLayout(LedgerTitlePanel);
         LedgerTitlePanel.setLayout(LedgerTitlePanelLayout);
         LedgerTitlePanelLayout.setHorizontalGroup(
@@ -253,20 +241,13 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(LedgerTitlePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LedgerTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(SearchBarTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         LedgerTitlePanelLayout.setVerticalGroup(
             LedgerTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LedgerTitlePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(LedgerTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(searchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(SearchBarTxtField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LedgerTitleLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(LedgerTitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -378,7 +359,7 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(leftSidePanelLayout.createSequentialGroup()
                 .addComponent(LedgerTitlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(LedgerListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                .addComponent(LedgerListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(LedegerViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -440,7 +421,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(currentTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CurrentDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -527,11 +508,6 @@ public class HomeScreen extends javax.swing.JFrame {
         hs.setVisible(true);
     }//GEN-LAST:event_refreshBtnActionPerformed
 
-    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_searchBtnActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         conSQL sqlConn = new conSQL();
@@ -559,6 +535,22 @@ public class HomeScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_LedgerListMouseClicked
 
+    private void ComboBoxChanged(){
+
+        YearComboBox.addItemListener(new ItemListener(){
+            public void itemStateChanged (ItemEvent arg0){
+                getDataToTable(LedgerList.getSelectedIndex());
+               
+            }
+        });
+        
+        MonthComboBox.addItemListener(new ItemListener(){
+            public void itemStateChanged (ItemEvent arg0){
+                getDataToTable(LedgerList.getSelectedIndex());
+              
+            }
+        });
+    }
     private void getDataToTable(int index){
         
         conSQL sqlConn = new conSQL();
@@ -568,18 +560,36 @@ public class HomeScreen extends javax.swing.JFrame {
         String ledegerId = sqlConn.retrieveAccId(LedgerList.getSelectedValue());
         System.out.println(ledegerId);
         
+        int year =  YearComboBox.getSelectedIndex();
+        int month = MonthComboBox.getSelectedIndex();
+        
+       String extendedQuery = "";
+       String strMonth = "";
+       if(month<10){
+           strMonth = "0"+month;
+       }
+       
+       if(year !=0 && month == 0){
+           extendedQuery = " AND t_date LIKE '"+YearComboBox.getSelectedItem()+"-%'";
+       }
+       else if(year ==0 && month != 0){
+           extendedQuery = " AND  t_date LIKE '%-"+strMonth+"-%'";
+       }else if(year !=0 && month != 0){
+           extendedQuery = " AND t_date LIKE '"+YearComboBox.getSelectedItem()+"-"+strMonth+"%'";
+       }
+        System.out.println(extendedQuery);
         
         
         String[] CrDr = {"Credit", "Debit"};
         for(int cdCount = 0; cdCount<2;cdCount++){
-            List<String> dateList =  sqlConn.retrieveAccData(ledegerId,"t_date", cd[cdCount]);
-            List<String> AccIdList =  sqlConn.retrieveAccData(ledegerId,cdCount==0?cd[1]:cd[0], cd[cdCount]);
-            List<String> desList =  sqlConn.retrieveAccData(ledegerId,"transaction_description", cd[cdCount]);
-            List<String> AmountList =  sqlConn.retrieveAccData(ledegerId,"amount", cd[cdCount]);
+            List<String> dateList =  sqlConn.retrieveAccData(ledegerId,"t_date", cd[cdCount],extendedQuery);
+            List<String> AccIdList =  sqlConn.retrieveAccData(ledegerId,cdCount==0?cd[1]:cd[0], cd[cdCount],extendedQuery);
+            List<String> desList =  sqlConn.retrieveAccData(ledegerId,"transaction_description", cd[cdCount],extendedQuery);
+            List<String> AmountList =  sqlConn.retrieveAccData(ledegerId,"amount", cd[cdCount],extendedQuery);
         
         for (int i = 0; i< dateList.size();i++){
             
-            System.out.println(dateList.get(i));
+           // System.out.println(dateList.get(i));
             Object[] row = new Object[8];
             row[0] = dateList.get(i);
             row[1] = AccIdList.get(i);
@@ -659,7 +669,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel MonthFilterLabel;
     private javax.swing.JLabel RowCountLabel;
-    private java.awt.TextField SearchBarTxtField;
     private javax.swing.JLabel SelectedLedgerDis;
     private javax.swing.JLabel SelectedLedgerTitleLabel;
     private javax.swing.JPanel SelectedLedgerTitlePanel;
@@ -675,7 +684,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton newAccBtn;
     private javax.swing.JButton refreshBtn;
-    private javax.swing.JButton searchBtn;
     private javax.swing.JButton trialBlnceBtn;
     // End of variables declaration//GEN-END:variables
 
