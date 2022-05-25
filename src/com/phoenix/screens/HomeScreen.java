@@ -125,7 +125,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         currentTimeLabel = new javax.swing.JLabel();
         RowCountLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lastTrcDateLabel = new javax.swing.JLabel();
         CurrentDateLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -407,7 +407,7 @@ public class HomeScreen extends javax.swing.JFrame {
         RowCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RowCountLabel.setText("00 transactions are available");
 
-        jLabel3.setText("last transaction : 01/01/2022");
+        lastTrcDateLabel.setText("last transaction : 01/01/2022");
 
         CurrentDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CurrentDateLabel.setText("current Date");
@@ -418,7 +418,7 @@ public class HomeScreen extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lastTrcDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
@@ -438,7 +438,7 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addComponent(CurrentDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(RowCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)))
+                        .addComponent(lastTrcDateLabel)))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -551,6 +551,8 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
     }
+    
+   
     private void getDataToTable(int index){
         
         conSQL sqlConn = new conSQL();
@@ -579,14 +581,18 @@ public class HomeScreen extends javax.swing.JFrame {
        }
         System.out.println(extendedQuery);
         
-        
+        String fdate ="";
         String[] CrDr = {"Credit", "Debit"};
         for(int cdCount = 0; cdCount<2;cdCount++){
             List<String> dateList =  sqlConn.retrieveAccData(ledegerId,"t_date", cd[cdCount],extendedQuery);
             List<String> AccIdList =  sqlConn.retrieveAccData(ledegerId,cdCount==0?cd[1]:cd[0], cd[cdCount],extendedQuery);
             List<String> desList =  sqlConn.retrieveAccData(ledegerId,"transaction_description", cd[cdCount],extendedQuery);
             List<String> AmountList =  sqlConn.retrieveAccData(ledegerId,"amount", cd[cdCount],extendedQuery);
-        
+            List<String> vnList =  sqlConn.retrieveAccData(ledegerId,"vn", cd[cdCount],extendedQuery);
+            List<String> prList =  sqlConn.retrieveAccData(ledegerId,"pr", cd[cdCount],extendedQuery);
+            
+            if(dateList!=null)
+            
         for (int i = 0; i< dateList.size();i++){
             
            // System.out.println(dateList.get(i));
@@ -595,27 +601,30 @@ public class HomeScreen extends javax.swing.JFrame {
             row[1] = AccIdList.get(i);
             row[2] = sqlConn.retrieveAccNameByID(AccIdList.get(i));
             row[3] = desList.get(i);
-            row[4] = 0;
-            row[5] = 0;
+            row[4] = vnList.get(i);
+            row[5] = prList.get(i);
             row[6] = AmountList.get(i);
             row[7] = CrDr[cdCount];
             
+            fdate = dateList.get(i);
             
             model.addRow(row);
            model.fireTableDataChanged();
             
         }
         }
+        lastTrcDateLabel.setText("last transaction "+ fdate);
         
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(DataTable.getModel());
         DataTable.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>();
  
-        int columnIndexToSort = 1;
+        int columnIndexToSort = 1;       
         sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.DESCENDING));
  
         sorter.setSortKeys(sortKeys);
         sorter.sort();
+        
         
         
 
@@ -678,8 +687,8 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JPanel backPanel;
     private javax.swing.JLabel currentTimeLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lastTrcDateLabel;
     private javax.swing.JPanel leftSidePanel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton newAccBtn;

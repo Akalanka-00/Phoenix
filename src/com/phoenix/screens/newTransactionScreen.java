@@ -312,7 +312,9 @@ public class newTransactionScreen extends javax.swing.JFrame {
                         amount + ", '" +
                         crId + "', '" +
                         drId + "', '" +
-                        desc + "');";
+                        desc + "', '"+
+                        vn + "', '" +
+                        pr + "');";
                 sqlConn.st.executeUpdate(query);
 
                 sqlConn.conn.close();
