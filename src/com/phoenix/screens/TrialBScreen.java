@@ -306,6 +306,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Status");
 
+        TrialAccuracyLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         TrialAccuracyLabel.setText("This trial Balance is correct");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -314,7 +315,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         DynamicTotalDebitLabel.setText("LKR 50000");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Total Debit");
+        jLabel6.setText("Total Credit");
 
         DynamicTotalCreditLabel.setText("LKR 50000");
 
@@ -499,8 +500,8 @@ public class TrialBScreen extends javax.swing.JFrame {
           // System.out.println(startYear+"-"+startMonth+"-"+endYear+"-"+endMonth);
                  
             sqlConn.DateDuration(startYear,startMonth,endYear,endMonth);
-            TotalDebit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString(),Strdate1,Strdate2);
-            TotalCredit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString(),Strdate1,Strdate2);
+            TotalDebit=  sqlConn.TransactionTotalAmount(cd[1].toString(),accNameIdList.get(i).toString(),Strdate1,Strdate2);
+            TotalCredit=  sqlConn.TransactionTotalAmount(cd[0].toString(),accNameIdList.get(i).toString(),Strdate1,Strdate2);
            // System.out.println(cd[0].toString());
             System.out.println(Strdate2 +" AND "+Strdate1);
             
@@ -518,12 +519,12 @@ public class TrialBScreen extends javax.swing.JFrame {
            
 
            if(TotalDebit >= TotalCredit){
-               row[2] =TotalDebit;
+               row[2] =TotalDebit-TotalCredit;
                row[3] = null;
              //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(), TotalDebit+"", null});
            }else{
                row[2] = null;
-               row[3] =TotalCredit;
+               row[3] =TotalCredit-TotalDebit;
              //  model.addRow(new String[]{accNameIdList.get(i).toString(),sqlConn.transactionAccName(accNameIdList.get(i).toString()).toString(),null, TotalCredit+""});
            }
           // System.out.println(row[0]+"hii");
@@ -563,7 +564,7 @@ public class TrialBScreen extends javax.swing.JFrame {
         DynamicTotalCreditLabel.setText(TotalCredit+"");
         if(DynamicTotalDebitLabel.getText().equals(DynamicTotalCreditLabel.getText())){
             TrialAccuracyLabel.setText("This trial Balance is correct");
-            TrialAccuracyLabel.setForeground(Color.black);
+            TrialAccuracyLabel.setForeground(new Color(0, 155, 0));
             
             if(DynamicTotalCreditLabel.getText().equals("0.0")){
                  TrialAccuracyLabel.setText("This trial Balance is empty");

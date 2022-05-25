@@ -400,6 +400,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="TrialAccuracyLabel">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="This trial Balance is correct"/>
               </Properties>
             </Component>
@@ -417,7 +420,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Total Debit"/>
+                <Property name="text" type="java.lang.String" value="Total Credit"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="DynamicTotalCreditLabel">
